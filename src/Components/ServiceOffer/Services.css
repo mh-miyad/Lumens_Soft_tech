@@ -1,0 +1,249 @@
+.serv-one-title {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+  text-align: center !important;
+}
+
+.services-one {
+  position: relative;
+  padding: 100px 0px 100px;
+  background-color: rgb(244, 245, 250);
+}
+
+.services-one-bg {
+  background-image: url(../images/pattern-14.png);
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.serv-one-title-one p {
+  position: relative;
+  font-weight: 700;
+  font-size: 22px;
+  text-transform: capitalize;
+  color: #0d6efd;
+}
+
+.serv-one-title-two {
+  position: relative;
+  font-weight: 700;
+  line-height: 54px;
+  font-size: 42px;
+  text-transform: capitalize;
+  margin-top: 30px;
+}
+
+.serv-one-title-two span {
+  color: #0d6efd;
+}
+
+.services-one .owl-carousel .owl-stage-outer {
+  padding-top: 30px;
+  height: 400px;
+}
+
+/* .services-one .owl-carousel .owl-stage-outer .owl-stage{
+    transform: translate3d(-2340px, 0px, 0px);
+    transition: all 0.5s ease 0s !important;
+    width: 7020px !important;
+} */
+
+.owl-carousel-box {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.owl-carousel-box-inner {
+  position: relative;
+  text-align: center;
+  padding: 0px 20px 40px;
+}
+
+.owl-carousel-box-inner::before {
+  position: absolute;
+  content: "";
+  left: 0px;
+  top: 40px;
+  right: 0px;
+  bottom: 0px;
+  border-radius: 60px 10px 10px 10px;
+  background-color: white;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.serv-caro-icon {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto;
+  display: block;
+  z-index: 1;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.serv-caro-icon::before {
+  position: absolute;
+  content: "";
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+  border-radius: 20px;
+  transform: rotate(45deg);
+  background: rgb(113, 20, 239);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(90deg, #0d6efd 0%, #7114ef 100%);
+}
+
+.owl-carousel-box-inner h5 {
+  position: relative;
+  font-weight: 700;
+  font-size: 20px;
+  color: black;
+  margin-top: 45px;
+  padding-bottom: 15px;
+}
+
+.owl-carousel-box-inner h5::before {
+  position: absolute;
+  content: "";
+  left: 50%;
+  bottom: 0px;
+  width: 90px;
+  height: 4px;
+  transform: translateX(-50%);
+  background: rgb(113, 20, 239);
+  background: linear-gradient(90deg, #0d6efd 0%, #7114ef 100%);
+}
+
+.owl-carousel-box-inner p {
+  position: relative;
+  line-height: 28px;
+  font-size: 16px;
+  color: rgb(87, 88, 109);
+  margin-top: 25px;
+}
+
+.owl-carousel-box-overly {
+  position: absolute;
+  inset: 0px;
+  z-index: 2;
+  opacity: 0;
+  overflow: hidden;
+  padding: 30px;
+  background: white;
+  border-radius: 10px 30px 10px 10px;
+  transition: all 500ms ease 0s;
+  transform: scale(0.2, 1);
+}
+
+.owl-carousel-box-inner:hover .serv-caro-icon {
+  opacity: 0;
+  transition: all 500ms ease 0s;
+}
+
+.owl-carousel-box-inner:hover .owl-carousel-box-overly {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.owl-carousel-box-overly-color-layer {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  height: 261px;
+  background: url("../../assets/images/pattern-15.png") 0% 0% / cover no-repeat;
+}
+
+.serv-caro-over-icon {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  margin: 0px auto;
+  display: block;
+  z-index: 1;
+}
+
+.serv-caro-over-icon::before {
+  position: absolute;
+  content: "";
+  inset: 0px;
+  z-index: -1;
+  border-radius: 20px;
+  transform: rotate(45deg);
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 10px 10px 10px;
+}
+
+.owl-carousel-box-overly h5 {
+  margin-top: 85px !important;
+  position: relative;
+  font-weight: 700;
+  font-size: 20px;
+  color: rgb(16, 17, 48);
+  margin-top: 45px;
+  padding-bottom: 15px;
+}
+
+.owl-carousel-box-overly h5 a {
+  text-decoration: none;
+  position: relative;
+  color: rgb(16, 17, 48);
+}
+
+.owl-carousel-box-overly h5 a:hover {
+  color: rgb(113, 20, 239);
+}
+
+.owl-carousel-box-overly .over-ly-a {
+  position: relative;
+  font-weight: 700;
+  display: inline-block;
+  padding: 8px 20px;
+  border: 2px solid #7114ef;
+  border-radius: 999px;
+  font-size: 16px;
+  color: rgb(113, 20, 239);
+  margin-top: 30px;
+  background: linear-gradient(90deg, #0d6efd 0%, #7114ef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  -ms-border-radius: 999px;
+  -o-border-radius: 999px;
+}
+
+button.owl-next {
+  float: right;
+}
+
+button.owl-prev,
+button.owl-next {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  background: #0d6efd !important;
+  border-radius: 50%;
+}
+
+button.owl-prev span,
+button.owl-next span {
+  position: absolute;
+  font-size: 47px;
+  color: white;
+  top: -24px;
+  left: 10px;
+}

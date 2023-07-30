@@ -1,0 +1,131 @@
+section.feature-one {
+  padding-top: 55px;
+  padding-bottom: 55px;
+  position: relative;
+}
+
+.feature-one {
+  position: relative;
+}
+
+.feature-one-bg {
+  position: absolute;
+  background-image: url(../../assets/images/feature-1-bg.jpg);
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  background-size: cover;
+}
+
+.feat-pattern-layer-one {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-image: url(../../assets/images/bg-art-5.png);
+  height: 100%;
+}
+
+.feat-pattern-layer-two {
+  position: absolute;
+  right: 2px;
+  top: 59px;
+  width: 293px;
+  height: 445px;
+  background-repeat: no-repeat;
+  background-image: url(../../assets/images/bg-art-6.png);
+  overflow: hidden;
+}
+
+.feature-one-bg::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  background: #00000087;
+  height: 100%;
+}
+
+.feature-one-title {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 22px;
+}
+
+.feature-one-h2 {
+  position: relative;
+  font-weight: 700;
+  padding: 12px 34px;
+  border-radius: 2px;
+  display: inline-block;
+  font-size: 18px;
+  text-transform: capitalize;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  color: #7114ef;
+  background: linear-gradient(90deg, #0d6efd 0%, #7114ef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 30px;
+}
+
+h2.feature-one-h2::before {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: white;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 2px;
+}
+
+.feature-one-list-box {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+h5.feature-one-h5 {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+span.feature-one-icon {
+  position: relative;
+  font-size: 28px;
+  margin-right: 22px;
+  color: #ffffff;
+}
+
+h5.feat-one-list-item {
+  font-size: 16px;
+  line-height: 27px;
+  color: #ffffff;
+}
+
+.feature-one-list-box:hover .feature-one-icon i {
+  transition: all 0.3s ease-in-out;
+  color: #7114ef;
+}
+
+.feature-one-img {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.feat-two-title {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+  text-align: center !important;
+}
