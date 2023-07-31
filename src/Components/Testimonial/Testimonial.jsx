@@ -37,7 +37,7 @@ const Testimonial = () => {
                           <i className='fa-solid fa-star'></i>
                           <i className='fa-solid fa-star'></i>
                         </div>
-                        <div className='text-lg md:text-xl lg:text-2xl'>
+                        <div className='text-lg md:text-xl text-gray-500'>
                           “I To helped the client achieve their goal of calling
                           the attention of mobile network operators. The expert
                           team was also able to develop an app with commendable
@@ -66,7 +66,7 @@ const Testimonial = () => {
                           <i className='fa-solid fa-star'></i>
                           <i className='fa-solid fa-star'></i>
                         </div>
-                        <div className='text-lg md:text-xl lg:text-2xl'>
+                        <div className='text-lg md:text-xl text-gray-500'>
                           “I To helped the client achieve their goal of calling
                           the attention of mobile network operators. The expert
                           team was also able to develop an app with commendable
@@ -114,7 +114,7 @@ const Testimonial = () => {
                         <div className='test-two-info-box'>
                           <div className='test-two-info'>
                             <i className='fa-solid fa-quote-left'></i>
-                            <div className=' text-lg md:text-xl lg:text-2xl'>
+                            <div className=' text-lg md:text-xl lg:text-4xl'>
                               Ordered my first mobile app development to iCoderz
                               Solutions. I was inexperienced contractor but they
                               carefully listened to my request and try to

@@ -38,7 +38,7 @@ const AboutUs = () => {
       </Helmet>
       {/* <!-- about 1st part --> */}
       <section className='about-first'>
-        <div className='max-w-6xl mx-auto   '>
+        <div className='max-w-6xl mx-auto   px-5'>
           <div className='row'>
             <div className='abour-first-img col-lg-6 col-md-6 col-sm-12 '>
               <div className='about-icon-img'>
@@ -60,7 +60,7 @@ const AboutUs = () => {
       {/* <!-- about 1st end -->
     <!-- about 2nd part --> */}
       <section className='about-one-part' id='about-counter'>
-        <div className='max-w-6xl mx-auto '>
+        <div className='max-w-6xl mx-auto px-10'>
           <div className='row'>
             {/* <!-- left part --> */}
             <div className='about-one-content col-lg-6 col-md-12 col-sm-12'>
@@ -80,15 +80,21 @@ const AboutUs = () => {
                 {/* <!-- about tabs --> */}
                 <div className='about-info-tabs'>
                   <div className='about-info-tab-box'>
-                    <button className='tab-btn active'>Our Mession</button>
-                    <button className='tab-btn'>Our vision</button>
-                    <button className='tab-btn'>Our value</button>
+                    <button className='tab-btn -mt-5 sm:mt-0   active'>
+                      Our Mession
+                    </button>
+                    <button className='tab-btn -mt-5  sm:mt-0 '>
+                      Our vision
+                    </button>
+                    <button className='tab-btn -mt-5  sm:mt-0 '>
+                      Our value
+                    </button>
                     <div className='line'></div>
                   </div>
                   <div className='tab-content-box'>
                     {/* <!-- block --> */}
                     <div className='tab-content active'>
-                      <h3>Our Mession</h3>
+                      <h3 className='my-2'>Our Mession</h3>
                       <p>
                         An IT firm or MSP who keeps your IT running smoothly at
                         all times is like a plumber who fixes your pipes; that’s
@@ -132,7 +138,7 @@ const AboutUs = () => {
             </div>
             {/* <!-- left part -->
                 <!-- right part --> */}
-            <div className='about-one-img-column col-lg-6 col-md-12 col-sm-12 mb-20'>
+            <div className='about-one-img-column col-lg-6 col-md-12 col-sm-12 mb-20 px-10'>
               <div className='about-one-img-inner'>
                 <div className='about-circle-img'>
                   <img src={img2} alt='' />
@@ -143,7 +149,7 @@ const AboutUs = () => {
                     <div className='layer-dots'></div>
                     <div className='about-counter-box'>
                       <div className='count' max-data='12'>
-                        0
+                        12
                       </div>
                     </div>
                     <div className='counter-text'>years of experiences</div>
