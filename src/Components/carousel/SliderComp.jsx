@@ -1,5 +1,7 @@
 import React from "react";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const SliderComp = () => {
   return (
     <section className='main-slider'>
@@ -12,7 +14,7 @@ const SliderComp = () => {
                 <div className='slide'>
                   <div className='slider-image-layer'></div>
                   <div className='slider-pattern-layer'></div>
-                  <div className='max-w-6xl mx-auto px-10 '>
+                  <div className='max-w-6xl mx-auto px-20 '>
                     {/* content column */}
                     <div className='slider-content'>
                       <div className='slider-con-inner'>

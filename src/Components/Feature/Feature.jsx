@@ -5,6 +5,10 @@ import img3 from "../../assets/images/feature-3.png";
 import img4 from "../../assets/images/feature-4.png";
 import img5 from "../../assets/images/feature-5.png";
 import "./feature.css";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const Feature = () => {
   const feature = [
     { id: 1, title: "web design ", img: img3 },

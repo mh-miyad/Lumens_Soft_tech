@@ -2,7 +2,9 @@ import React from "react";
 import ServicesCard from "../Components/ServicesCard/ServicesCard";
 import service from "../data/service";
 import { Helmet } from "react-helmet";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const Services = () => {
   return (
     <div>
@@ -11,7 +13,7 @@ const Services = () => {
         <title>All Services Page-Lumens Soft tech</title>
       </Helmet>
       <section className='service-one-part'>
-        <div className='max-w-6xl mx-auto '>
+        <div className='max-w-6xl mx-auto px-5 sm:px-10'>
           <div className='row'>
             <div className='col-lg-12 col-md-12 col-sm-12'>
               <div className='service-one-title-box'>
@@ -29,7 +31,7 @@ const Services = () => {
 
       <div>
         <section className='service-part-two'>
-          <div className='max-w-6xl mx-auto '>
+          <div className='max-w-6xl mx-auto px-5 sm:px-10'>
             <div className='row'>
               <div className='col-lg-12'>
                 <div className='service-two-title-box'>

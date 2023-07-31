@@ -2,6 +2,9 @@ import React from "react";
 
 import team from "../../data/team";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const TeamCom = () => {
   return (
     <div>
@@ -17,7 +20,7 @@ const TeamCom = () => {
           className='rellax'
           data-rellax-speed='4'
           style={{ backgroundImage: "url(../images/pattern-24.png)" }}></div>
-        <div className='max-w-6xl mx-auto px-16 '>
+        <div className='max-w-6xl mx-auto px-5 sm:px-16 '>
           <div className='team-tile-box'>
             <div className='team-title'>Team Member</div>
             <h2 className='team-heading'>Passionate Personalities,</h2>

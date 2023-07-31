@@ -12,7 +12,9 @@ import SkillSection from "../Components/Skill/SkillSection";
 import Testimonial from "../Components/Testimonial/Testimonial";
 import TeamCom from "../Components/Team/TeamCom";
 import { Helmet } from "react-helmet";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const HomePage = () => {
   return (
     <div>

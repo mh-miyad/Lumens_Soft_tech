@@ -1,9 +1,11 @@
 import React from "react";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const FooterBanner = () => {
   return (
     <section className='footer-head '>
-      <div className='max-w-6xl mx-auto  '>
+      <div className='max-w-6xl mx-auto px-4 sm:px-20 '>
         <div className='row'>
           <div className='col-lg-12 col-md-12 col-sm-12'>
             <div className='f-h-bg' data-aos='fade-up' data-aos-duration='1500'>

@@ -5,6 +5,9 @@ import img2 from "../assets/images/pattern-45.png";
 import img3 from "../assets/images/about-4.jpg";
 import img4 from "../assets/images/award.svg";
 import { Helmet } from "react-helmet";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const AboutUs = () => {
   useEffect(() => {
     const tabs = document.querySelectorAll(".tab-btn");

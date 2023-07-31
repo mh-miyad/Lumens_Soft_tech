@@ -1,6 +1,9 @@
 import React from "react";
 import img from "../../assets/images/feature.png";
 import "./Newslatter.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const Newslatter = () => {
   return (
     <div>
@@ -8,7 +11,7 @@ const Newslatter = () => {
         <div className='feature-one-bg'></div>
         <div className='feat-pattern-layer-one'></div>
         <div className='feat-pattern-layer-two'></div>
-        <div className='max-w-6xl mx-auto   '>
+        <div className='max-w-6xl mx-auto  px-16 '>
           <div className='grid grid-cols-1 md:grid-cols-2 items-center gap-10'>
             <div className='feat-one-img   '>
               <div className='feature-one-img'>

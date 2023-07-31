@@ -3,12 +3,15 @@ import "./About.css";
 import aboutImg from "../../assets/images/about-2.jpg";
 import aboutImg1 from "../../assets/images/about-1.png";
 import aboutImg2 from "../../assets/images/about-2.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const About = () => {
   return (
     <div className='my-20'>
       <section className='about-one '>
         <div className='about-one-pattern-one '></div>
-        <div className='max-w-6xl mx-auto px-10 md:px-20 '>
+        <div className='max-w-6xl mx-auto px-10   '>
           <div className='row'>
             <div className='about-one-img-box col-md-6 col-lg-6 col-sm-12'>
               <div className='about-one-pattern-two '></div>
@@ -16,7 +19,7 @@ const About = () => {
                 <img
                   src={aboutImg}
                   alt=''
-                  className='lg:left-24 xl:left-48 shadow-2xl shadow-indigo-500/60'
+                  className='lg:left-24 xl:left-32 shadow-2xl shadow-indigo-500/60'
                 />
               </div>
             </div>

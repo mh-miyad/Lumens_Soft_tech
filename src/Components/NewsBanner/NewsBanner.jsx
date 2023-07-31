@@ -3,6 +3,9 @@ import CountUp from "react-countup";
 import "./NewsBanner.css";
 import img1 from "../../assets/images/company-img.jpg";
 import img2 from "../../assets/images/best-it.svg";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const NewsBanner = () => {
   useEffect(() => {
     var count = document.getElementsByClassName("count");
@@ -111,7 +114,7 @@ const NewsBanner = () => {
         </div>
       </section>
       <section id='company-two'>
-        <div className='max-w-6xl mx-auto px-16  '>
+        <div className='max-w-6xl mx-auto px-12 mt-5 '>
           <div className='company-two-main'>
             <div className='company-two-main-title'>
               <h2>We develops strategic software solutions for businesses.</h2>

@@ -1,12 +1,15 @@
 import React from "react";
 import img from "../../assets/images/client.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const Testimonial = () => {
   return (
     <div>
       <section className='testimonial'>
         <div className='test-pattern'></div>
         <div className='test-bg'></div>
-        <div className='max-w-6xl mx-auto px-16  '>
+        <div className='max-w-6xl mx-auto  px-5  '>
           {/* <!-- title --> */}
           <div className='test-title'>
             <h5 className='client-test'>
@@ -34,7 +37,7 @@ const Testimonial = () => {
                           <i className='fa-solid fa-star'></i>
                           <i className='fa-solid fa-star'></i>
                         </div>
-                        <div className='test-text'>
+                        <div className='text-lg md:text-xl lg:text-2xl'>
                           “I To helped the client achieve their goal of calling
                           the attention of mobile network operators. The expert
                           team was also able to develop an app with commendable
@@ -63,7 +66,7 @@ const Testimonial = () => {
                           <i className='fa-solid fa-star'></i>
                           <i className='fa-solid fa-star'></i>
                         </div>
-                        <div className='test-text'>
+                        <div className='text-lg md:text-xl lg:text-2xl'>
                           “I To helped the client achieve their goal of calling
                           the attention of mobile network operators. The expert
                           team was also able to develop an app with commendable
@@ -99,7 +102,7 @@ const Testimonial = () => {
       <section className='test-two'>
         <div className='test-two-bg-01'></div>
         <div className='test-two-bg-02'></div>
-        <div className='max-w-6xl mx-auto px-16 '>
+        <div className='max-w-6xl mx-auto px-5 sm:px-16 '>
           <div className='row'>
             <div className='col-md-12 col-sm-12'>
               <div className='test-two-main'>
@@ -111,7 +114,7 @@ const Testimonial = () => {
                         <div className='test-two-info-box'>
                           <div className='test-two-info'>
                             <i className='fa-solid fa-quote-left'></i>
-                            <div className='test-two-info-text'>
+                            <div className=' text-lg md:text-xl lg:text-2xl'>
                               Ordered my first mobile app development to iCoderz
                               Solutions. I was inexperienced contractor but they
                               carefully listened to my request and try to

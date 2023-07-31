@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const BestFeature = () => {
   return (
     <section className='feature-two'>

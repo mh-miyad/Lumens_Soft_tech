@@ -5,7 +5,9 @@ import img2 from "../assets/images/con-icon-02.svg";
 import img3 from "../assets/images/con-icon-03.svg";
 import { Helmet } from "react-helmet";
 import ContactForm from "../Components/Contact/ContactForm";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const Contact = () => {
   return (
     <div className=''>

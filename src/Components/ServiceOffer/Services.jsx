@@ -2,7 +2,9 @@ import React from "react";
 import "./Services.css";
 import img from "../../assets/images/service-8.png";
 import img_1 from "../../assets/images/service-8-1.png";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const Services = () => {
   const service = [
     {
