@@ -150,13 +150,15 @@ const TeamDetails = () => {
           </div>
         </div>
       </section>
-      <section class='team-personal-info'>
-        <div class='container max-w-6xl mx-auto md:px-20'>
-          <div class='row'>
-            <div class='col-lg-12'>
-              <div class='team-personal-info-box'>
-                <h4 class='team-personal-info-title'>//personal information</h4>
-                <div class='team-persona-info-text'>
+      <section className='team-personal-info'>
+        <div className='container max-w-6xl mx-auto md:px-20'>
+          <div className='row'>
+            <div className='col-lg-12'>
+              <div className='team-personal-info-box'>
+                <h4 className='team-personal-info-title'>
+                  //personal information
+                </h4>
+                <div className='team-persona-info-text'>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Molestias ab atque dicta tenetur minima distinctio at
                   assumenda quam enim! Molestiae ducimus eum quaerat aperiam, et
@@ -174,7 +176,7 @@ const TeamDetails = () => {
                   molestias magni sapiente. Iste temporibus modi illo beatae!
                 </div>
                 <br />
-                <div class='team-persona-info-text'>
+                <div className='team-persona-info-text'>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Eaque commodi autem minus magni. Quae quia libero cum
                   doloremque deserunt, cumque quis consequatur, enim voluptates,
@@ -193,38 +195,42 @@ const TeamDetails = () => {
         </div>
       </section>
 
-      <section class='skill-sect-main' ref={skillsSectionRef}>
-        <div class='max-w-6xl mx-auto container md:px-20'>
-          <div class='row'>
-            <div class='col-lg-6 col-sm-12 col-md-12 progress-main-box'>
+      <section className='skill-sect-main' ref={skillsSectionRef}>
+        <div className='max-w-6xl mx-auto container md:px-20'>
+          <div className='row'>
+            <div className='col-lg-6 col-sm-12 col-md-12 progress-main-box'>
               <div id='skill-sect'>
                 <h2>//Skills</h2>
 
                 <p>Web Development</p>
-                <div class='progress'>
-                  <div class='progress-bar' data-progress='90'>
+                <div className='progress'>
+                  <div className='progress-bar' data-progress='90'>
                     <span>90%</span>
                   </div>
                 </div>
                 <p>software Development</p>
-                <div class='progress'>
-                  <div class='progress-bar progress-bg-2' data-progress='80'>
+                <div className='progress'>
+                  <div
+                    className='progress-bar progress-bg-2'
+                    data-progress='80'>
                     <span>80%</span>
                   </div>
                 </div>
                 <p>graphic design</p>
-                <div class='progress'>
-                  <div class='progress-bar progress-bg-4' data-progress='70'>
+                <div className='progress'>
+                  <div
+                    className='progress-bar progress-bg-4'
+                    data-progress='70'>
                     <span>70%</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class='col-lg-6 col-sm-12 col-md-12 team-skill-exp'>
-              <div class='team-skill-exp-main'>
+            <div className='col-lg-6 col-sm-12 col-md-12 team-skill-exp'>
+              <div className='team-skill-exp-main'>
                 <h2>//experiense</h2>
-                <div class='team-exp-info'>
+                <div className='team-exp-info'>
                   <ul>
                     <li className='mb-[14px]'>
                       If Google can’t crawl your site, it’s not going to rank –
@@ -245,27 +251,27 @@ const TeamDetails = () => {
           </div>
         </div>
       </section>
-      <section class='team-personal-con'>
-        <div class='team-personal-con-bg'></div>
-        <div class='max-w-6xl mxa-auto container md:px-20'>
-          <div class='row'>
-            <div class='col-lg-3'></div>
+      <section className='team-personal-con'>
+        <div className='team-personal-con-bg'></div>
+        <div className='max-w-6xl mxa-auto container md:px-20'>
+          <div className='row'>
+            <div className='col-lg-3'></div>
 
-            <div class='form-column col-lg-6 col-md-12 col-md-12'>
-              <div class='inner-column'>
-                <h4 class='team-personal-con-title'>//Contact with us</h4>
-                <h2 class='team-personal-con-head'>
+            <div className='form-column col-lg-6 col-md-12 col-md-12'>
+              <div className='inner-column'>
+                <h4 className='team-personal-con-title'>//Contact with us</h4>
+                <h2 className='team-personal-con-head'>
                   Feel Free to Contact with
                   <br /> Our IT Experts
                 </h2>
 
-                <div class='form-container'>
+                <div className='form-container'>
                   <ContactForm />
                 </div>
               </div>
             </div>
 
-            <div class='col-lg-2'></div>
+            <div className='col-lg-2'></div>
           </div>
         </div>
       </section>

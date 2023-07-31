@@ -29,26 +29,26 @@ const Scroll = () => {
   }, []);
   return (
     <div>
-      <div class='scroll-to-top-btn'>
-        <a href='#' class='scrollUp'>
-          <i class='fa-solid fa-angles-up'></i>
+      <div className='scroll-to-top-btn'>
+        <a href='#' className='scrollUp'>
+          <i className='fa-solid fa-angles-up'></i>
         </a>
       </div>
       {/* <!-- scroll to top button -->
 
     <!-- whatsapp to top button --> */}
-      <div class='whatsapp'>
-        <a href='https://wa.me/8801829317005' class='wtascrollUp'>
-          <i class='fa-brands fa-whatsapp'></i>
+      <div className='whatsapp'>
+        <a href='https://wa.me/8801829317005' className='wtascrollUp'>
+          <i className='fa-brands fa-whatsapp'></i>
         </a>
       </div>
       {/* <!-- whatsapp to top button -->
     <!-- skype to top button --> */}
-      <div class='skype'>
+      <div className='skype'>
         <a
           href='https://join.skype.com/invite/sQYngKj9QOUz'
-          class='skypescrollUp'>
-          <i class='fa-brands fa-skype'></i>
+          className='skypescrollUp'>
+          <i className='fa-brands fa-skype'></i>
         </a>
       </div>
     </div>
