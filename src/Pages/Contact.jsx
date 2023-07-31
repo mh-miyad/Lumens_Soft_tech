@@ -80,7 +80,7 @@ const Contact = () => {
                     </div>
                     <h4>Office address</h4>
                     <div className='block-inner-text'>
-                      Digital Agency Network 20 Eastbourne Terrace London W2 6LG
+                      331, Elephant Road (1st Floor), 1205
                     </div>
                   </div>
                 </div>
@@ -95,7 +95,7 @@ const Contact = () => {
                     <div className='block-inner-text'>
                       +880-1829317005
                       <br />
-                      +880-1829317005
+                      +880 1676-347987
                     </div>
                   </div>
                 </div>
@@ -108,9 +108,9 @@ const Contact = () => {
                     </div>
                     <h4>Mail address</h4>
                     <div className='block-inner-text'>
-                      help@envato.com
+                      info@lumensofttech.com
                       <br />
-                      help@support.com
+                      contactus@lumensofttech.com
                     </div>
                   </div>
                 </div>

@@ -19,15 +19,19 @@ const TopBar = () => {
                       </a>
                     </li>
                     <li className='tp-bar-con-list quick-cont-number'>
-                      <a href='+880-1829317005'>
+                      <a
+                        href='+8801676-347987
+'>
                         <i className='fa-solid fa-phone-flip'></i>
-                        +880-1829317005
+                        +8801676-347987
                       </a>
                     </li>
                     <li className='tp-bar-con-list'>
-                      <a href='princeabdulla006@gmail.com'>
+                      <a
+                        href='contactus@lumensofttech.com
+'>
                         <i className='fa-solid fa-envelope'></i>
-                        princeabdulla006@gmail.com
+                        contactus@lumensofttech.com
                       </a>
                     </li>
                   </ul>

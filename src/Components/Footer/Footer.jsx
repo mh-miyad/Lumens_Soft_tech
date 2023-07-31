@@ -115,13 +115,14 @@ const Footer = () => {
                         <ul className='f-w-c-list-ul'>
                           <li className='f-w-c-list-li'>
                             <a href='tel:+8801829317005'>
-                              <i className='fa-solid fa-phone'></i>+880129317005
+                              <i className='fa-solid fa-phone'></i>
+                              +8801676-347987
                             </a>
                           </li>
                           <li className='f-w-c-list-li'>
                             <a href='mail:info@specdigitech.com'>
                               <i className='fa-solid fa-envelope'></i>
-                              info@specdigitech.com
+                              info@lumensofttech.com
                             </a>
                           </li>
                           <li className='f-w-c-list-li'>
@@ -182,7 +183,7 @@ const Footer = () => {
               <div className='col-md-12 col-lg-12 col-sm-12'>
                 <div className='copy-right-sect'>
                   <p>2023 © All rights reserved by </p>
-                  <a href='#'>Spece Digitech</a>
+                  <a href='#'>Lumen SoftTech</a>
                 </div>
               </div>
             </div>
