@@ -5,10 +5,9 @@ import SidebarComp from "../Dashboard/DashboardComponents/Sidebar";
 
 const Layout = () => {
   return (
-    <div>
-      <SidebarComp>
-        <Outlet />
-      </SidebarComp>
+    <div className='flex gap-10'>
+      <SidebarComp />
+      <Outlet />
     </div>
   );
 };

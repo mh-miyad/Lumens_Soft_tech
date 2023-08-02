@@ -9,9 +9,12 @@ import "./Css/style.css";
 import "./Css/progress-bar.css";
 import router from "./Router/Router.jsx";
 import { RouterProvider } from "react-router-dom";
+import AuthProvider from "./Auth/AuthProvider";
 AOS.init();
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 );
