@@ -7,6 +7,8 @@ import Blogs from "../Pages/Blogs";
 import TeamMember from "../Pages/TeamMember";
 import Contact from "../Pages/Contact";
 import TeamDetails from "../Pages/TeamDetails";
+import Layout from "../Layout/Layout";
+import MainPages from "../Dashboard/Pages/MainPages";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +41,16 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <Layout />,
+    children: [
+      {
+        path: "/admin",
+        element: <MainPages />,
       },
     ],
   },
