@@ -1,12 +1,24 @@
-import { Button, Navbar } from "flowbite-react";
 import React from "react";
-
+import { useContext } from "react";
+import { useState } from "react";
+import { AiOutlineMenu } from "react-icons/ai";
+import { AuthContext } from "../../Auth/AuthProvider";
 const NavbarComp = () => {
+  const { setOpen, openMenu } = useContext(AuthContext);
+  // const [isOpen, setOpenMenu] = useState(false);
   return (
     <div>
-      <div className='bg-gray-800 text-white h-16 px-4 flex items-center'>
-        <h1 className='text-2xl font-bold'>Dashboard App</h1>
-        {/* Add any additional app bar content here */}
+      <div className='bg-[#130451] text-white py-3 w-full flex justify-between gap-4 '>
+        <div>
+          <div className='ml-5'>
+            <AiOutlineMenu
+              className='w-8 h-8 cursor-pointer'
+              onClick={() => setOpen(!openMenu)}
+            />
+          </div>
+        </div>
+        <div></div>
+        <div></div>
       </div>
     </div>
   );
