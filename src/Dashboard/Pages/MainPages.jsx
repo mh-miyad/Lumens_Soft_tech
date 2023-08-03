@@ -3,7 +3,7 @@ import React from "react";
 const MainPages = () => {
   return (
     <div>
-      <div className='text-5xl text-center r'>Coming Soon</div>
+      <div className='text-2xl text-center mt-20'> Welcome Dashboard </div>
     </div>
   );
 };

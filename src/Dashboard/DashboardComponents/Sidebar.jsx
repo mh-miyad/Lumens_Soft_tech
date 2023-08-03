@@ -48,7 +48,11 @@ const Sidebar = () => {
           <DropDownMenu
             icon={<AiOutlineDashboard />}
             lebel={"Dashboard"}
-            menu={["Create Pages ", "Project List", "Client List "]}
+            menu={[
+              { name: "Create Pages " },
+              { name: "Project List" },
+              { name: "Client List " },
+            ]}
           />
           <DropDownMenu
             icon={<AiFillAppstore />}
@@ -59,7 +63,12 @@ const Sidebar = () => {
           <DropDownMenu
             icon={<RiPagesLine />}
             lebel={"All Pages "}
-            menu={["About Us", "Blog", "Services", "Landing Page"]}
+            menu={[
+              { name: "About Us" },
+              { name: "Blog", router: "blogSection" },
+              { name: "Services" },
+              { name: "Landing Page" },
+            ]}
           />
           <DropDownMenu
             icon={<FaLayerGroup />}
@@ -71,30 +80,30 @@ const Sidebar = () => {
             icon={<FcGenealogy />}
             lebel={"UI Elements"}
             menu={[
-              "buttons",
-              "Alerts",
-              "Progress Bar",
-              "Number Counter ",
-              "Service Control ",
-              "Home carousel",
-              " Testimonials",
-              " Dropdown Menu ",
+              { name: "buttons" },
+              { name: "Alerts" },
+              { name: "Progress Bar" },
+              { name: "Number Counter " },
+              { name: "Service Control " },
+              { name: "Home carousel" },
+              { name: " Testimonials" },
+              { name: " Dropdown Menu " },
             ]}
           />
           <DropDownMenu
             icon={<LiaFileInvoiceDollarSolid />}
             lebel={"Invoices"}
-            menu={["Invoices List "]}
+            menu={[{ name: "Invoices List " }]}
           />
           <DropDownMenu
             icon={<HiOutlineMail />}
             lebel={"Email"}
-            menu={["Inbox", "Templates"]}
+            menu={[{ name: "Inbox" }, { name: "Templates" }]}
           />
           <DropDownMenu
             icon={<FaUsers />}
             lebel={"Team Managers"}
-            menu={["Team Create ", "Team Details "]}
+            menu={[{ name: "Team Create " }, { name: "Team Details " }]}
           />
           <li className='flex md:hidden '>
             <BsGridFill className='mx-4 w-7 h-8 text-white ' />
