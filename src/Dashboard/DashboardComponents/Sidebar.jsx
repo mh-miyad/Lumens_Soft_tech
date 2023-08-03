@@ -21,7 +21,7 @@ const Sidebar = () => {
       <div
         className={`${
           openMenu
-            ? " translate-x-0 transition-all  ease-in-out duration-700 delay-100 bg-[#032046] text-white min-h-screen  w-72 py-4"
+            ? " translate-x-0 transition-all  ease-in-out duration-700 delay-100 bg-[#032046] text-white min-h-screen  w-72 py-4 "
             : " -translate-x-[100vw] opacity-0 inset-0 w-0 transition-all duration-500  delay-150ease-in-out"
         }`}>
         <div className='px-5'>
@@ -43,7 +43,7 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
-        <ul className='text-xl mx-3 space-y-3 '>
+        <ul className='text-xl mx-3 space-y-3   '>
           <li className='text-cyan-400 font-bold'>Menu</li>
           <DropDownMenu
             icon={<AiOutlineDashboard />}
