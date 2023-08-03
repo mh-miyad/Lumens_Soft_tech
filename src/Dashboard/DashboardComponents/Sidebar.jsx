@@ -1,22 +1,35 @@
 import React from "react";
-
+import logo from "../../assets/lumenlogo/lumenlogo/lumensofttech-01.svg";
+import { useState } from "react";
+import { AiOutlineDashboard } from "react-icons/ai";
 const Sidebar = () => {
+  const [drop, setdrop] = useState(false);
   return (
     <div>
-      <div className='bg-gray-800 text-white h-screen w-64 py-4'>
-        <div className='text-2xl font-bold text-center mb-4'>Dashboard</div>
-        <ul className='text-xl'>
-          <li className='py-2 px-4'>Home</li>
-          <li className='py-2 px-4'>Analytics</li>
-          <li className='py-2 px-4'>Reports</li>
-          <li className='relative group py-2 px-4'>
-            <span>Dropdown</span>
-            <ul className='absolute hidden bg-gray-700 text-white rounded-lg p-2 group-hover:block'>
-              <li className='py-1 px-2'>Option 1</li>
-              <li className='py-1 px-2'>Option 2</li>
-              <li className='py-1 px-2'>Option 3</li>
-            </ul>
+      <div className='bg-[#032046] text-white h-screen w-72 py-4'>
+        <div className='px-5'>
+          <img src={logo} alt='' className='w-10/12' />
+        </div>
+        <ul className='text-xl mx-3 '>
+          <li>Menu</li>
+          <li
+            className={`py-2 px-4 cursor-pointer ${
+              drop ? "bg-[#062F65]  rounded-xl" : ""
+            }`}
+            onClick={() => setdrop(!drop)}>
+            <div className='flex items-center gap-4'>
+              {" "}
+              <AiOutlineDashboard /> <span>Dropdown</span>
+            </div>
           </li>
+          <ul
+            className={`${
+              drop ? "block" : "hidden"
+            } text-white rounded-lg  bg-[#062F65] py-4  mx-2 text-center `}>
+            <li className='py-1 px-2 '>Create project</li>
+            <li className='py-1 px-2 '>project list</li>
+            <li className='py-1 px-2 '>client list</li>
+          </ul>
         </ul>
       </div>
     </div>
