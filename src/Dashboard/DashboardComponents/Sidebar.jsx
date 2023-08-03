@@ -1,7 +1,9 @@
 import React from "react";
 import logo from "../../assets/lumenlogo/lumenlogo/lumensofttech-01.svg";
 import { useState } from "react";
-import { AiOutlineDashboard } from "react-icons/ai";
+import { AiOutlineDashboard, AiFillAppstore } from "react-icons/ai";
+import DropDownMenu from "./DropDown/DropDownMenu";
+
 const Sidebar = () => {
   const [drop, setdrop] = useState(false);
   return (
@@ -10,26 +12,18 @@ const Sidebar = () => {
         <div className='px-5'>
           <img src={logo} alt='' className='w-10/12' />
         </div>
-        <ul className='text-xl mx-3 '>
-          <li>Menu</li>
-          <li
-            className={`py-2 px-4 cursor-pointer ${
-              drop ? "bg-[#062F65]  rounded-xl" : ""
-            }`}
-            onClick={() => setdrop(!drop)}>
-            <div className='flex items-center gap-4'>
-              {" "}
-              <AiOutlineDashboard /> <span>Dropdown</span>
-            </div>
-          </li>
-          <ul
-            className={`${
-              drop ? "block" : "hidden"
-            } text-white rounded-lg  bg-[#062F65] py-4  mx-2 text-center `}>
-            <li className='py-1 px-2 '>Create project</li>
-            <li className='py-1 px-2 '>project list</li>
-            <li className='py-1 px-2 '>client list</li>
-          </ul>
+        <ul className='text-xl mx-3 space-y-3 '>
+          <li className='text-cyan-400 font-bold'>Menu</li>
+          <DropDownMenu
+            icon={<AiOutlineDashboard />}
+            lebel={"Dashboard"}
+            menu={["Create Pages ", "Project List", "Client List "]}
+          />
+          <DropDownMenu
+            icon={<AiFillAppstore />}
+            lebel={"App"}
+            menu={["Not Set yet"]}
+          />
         </ul>
       </div>
     </div>
