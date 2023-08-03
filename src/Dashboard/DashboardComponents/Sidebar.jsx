@@ -10,6 +10,8 @@ import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import DropDownMenu from "./DropDown/DropDownMenu";
 import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
+import { BsFillBellFill, BsGridFill, BsMoonFill } from "react-icons/bs";
+import { Avatar } from "flowbite-react";
 
 const Sidebar = () => {
   const { openMenu } = useContext(AuthContext);
@@ -19,11 +21,27 @@ const Sidebar = () => {
       <div
         className={`${
           openMenu
-            ? " translate-x-0 transition-all  ease-in-out duration-700 delay-100 bg-[#032046] text-white h-screen w-72 py-4"
+            ? " translate-x-0 transition-all  ease-in-out duration-700 delay-100 bg-[#032046] text-white md:h-screen w-72 py-4"
             : " -translate-x-[100vw] opacity-0 inset-0 w-0 transition-all duration-500  delay-150ease-in-out"
         }`}>
         <div className='px-5'>
           <img src={logo} alt='' className='w-10/12' />
+        </div>
+        <div>
+          <div className=' md:hidden '>
+            <div className='text-center '>
+              <Avatar
+                size={"xl"}
+                img={"https://i.ibb.co/cYDsgQt/team-mem.png"}
+                rounded
+                bordered
+              />
+              <div>
+                <p className='text-xl'>AZMIR UDDIN </p>
+                <p> Admin </p>
+              </div>
+            </div>
+          </div>
         </div>
         <ul className='text-xl mx-3 space-y-3 '>
           <li className='text-cyan-400 font-bold'>Menu</li>
@@ -78,6 +96,11 @@ const Sidebar = () => {
             lebel={"Team Managers"}
             menu={["Team Create ", "Team Details "]}
           />
+          <li className='flex md:hidden '>
+            <BsGridFill className='mx-4 w-7 h-8 text-white ' />
+            <BsMoonFill className='mx-4 w-7 h-8 text-white ' />
+            <BsFillBellFill className='mx-4 w-7 h-8 text-white ' />
+          </li>
         </ul>
       </div>
     </div>
