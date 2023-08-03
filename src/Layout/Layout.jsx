@@ -6,7 +6,7 @@ import NavbarComp from "../Dashboard/DashboardComponents/NavbarComp";
 
 const Layout = () => {
   return (
-    <div className='flex justify-center'>
+    <div className='flex '>
       <SidebarComp />
       <div>
         <NavbarComp />

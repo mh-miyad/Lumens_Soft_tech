@@ -9,6 +9,7 @@ import Contact from "../Pages/Contact";
 import TeamDetails from "../Pages/TeamDetails";
 import Layout from "../Layout/Layout";
 import MainPages from "../Dashboard/Pages/MainPages";
+import BlogCreate from "../Dashboard/Pages/BlogCreate";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <MainPages />,
+      },
+      {
+        path: "/admin/blogSection",
+        element: <BlogCreate />,
       },
     ],
   },
