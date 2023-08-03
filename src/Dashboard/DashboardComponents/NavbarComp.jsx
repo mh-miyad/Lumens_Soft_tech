@@ -1,30 +1,36 @@
-// import React from "react";
-// import { Button, Navbar } from "flowbite-react";
-// import React, { useContext, useState } from "react";
-// import { AuthContext } from "../../Auth/AuthProvider";
-// import { HiBars3CenterLeft } from "react-icons/hi2";
-// // import logo from "../../assets/logo.png";
-// const NavbarComp = () => {
-//   return (
-//     <div>
-//       <div className=''>
-//         <Navbar fluid rounded className=' bg-white  dark:bg-slate-950 '>
-//           <Navbar.Brand>
-//             <HiBars3CenterLeft
-//               onClick={() => setIsopen(!isOpen)}
-//               className='mr-10 h-8 w-8 text-black dark:text-white '
-//               cursor={"pointer"}
-//             />
-//             <img
-//               alt='codexyFy Logo'
-//               className='mr-3 h-7 rounded-full sm:h-14'
-//               //   src={logo}
-//             />
-//           </Navbar.Brand>
-//         </Navbar>
-//       </div>
-//     </div>
-//   );
-// };
+import { Button, Navbar } from "flowbite-react";
+import React from "react";
 
-// export default NavbarComp;
+const NavbarComp = () => {
+  return (
+    <div>
+      <Navbar fluid rounded>
+        <Navbar.Brand href='https://flowbite-react.com'>
+          <img
+            alt='Flowbite React Logo'
+            className='mr-3 h-6 sm:h-9'
+            src='/favicon.svg'
+          />
+          <span className='self-center whitespace-nowrap text-xl font-semibold dark:text-white'>
+            Flowbite React
+          </span>
+        </Navbar.Brand>
+        <div className='flex md:order-2'>
+          <Button>Get started</Button>
+          <Navbar.Toggle />
+        </div>
+        <Navbar.Collapse>
+          <Navbar.Link active href='#'>
+            <p>Home</p>
+          </Navbar.Link>
+          <Navbar.Link href='#'>About</Navbar.Link>
+          <Navbar.Link href='#'>Services</Navbar.Link>
+          <Navbar.Link href='#'>Pricing</Navbar.Link>
+          <Navbar.Link href='#'>Contact</Navbar.Link>
+        </Navbar.Collapse>
+      </Navbar>
+    </div>
+  );
+};
+
+export default NavbarComp;
