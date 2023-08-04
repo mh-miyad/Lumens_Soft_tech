@@ -14,6 +14,7 @@ import CreatePages from "../Dashboard/Pages/CreatePages";
 import ProjectList from "../Dashboard/Pages/ProjectList";
 import AboutUSPage from "../Dashboard/Pages/AboutUSPage";
 import CreateClientList from "../Dashboard/Pages/CreateClientList";
+import TeamCreate from "../Dashboard/Pages/TeamCreate";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/blogSection",
         element: <BlogCreate />,
+      },
+      {
+        path: "/admin/team_list",
+        element: <TeamCreate />,
       },
     ],
   },

@@ -103,7 +103,10 @@ const Sidebar = () => {
           <DropDownMenu
             icon={<FaUsers />}
             lebel={"Team Managers"}
-            menu={[{ name: "Team Create " }, { name: "Team Details " }]}
+            menu={[
+              { name: "Team Create ", router: "team_list" },
+              { name: "Team Details " },
+            ]}
           />
           <li className='flex md:hidden '>
             <BsGridFill className='mx-4 w-7 h-8 text-white ' />
