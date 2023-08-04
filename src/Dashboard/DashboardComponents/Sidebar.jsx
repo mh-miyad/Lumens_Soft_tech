@@ -21,8 +21,8 @@ const Sidebar = () => {
       <div
         className={`${
           openMenu
-            ? " translate-x-0 transition-all  ease-in-out duration-700 delay-100 bg-[#032046] text-white min-h-screen  w-72 py-4 "
-            : " -translate-x-[100vw] opacity-0 inset-0 w-0 transition-all duration-500  delay-150ease-in-out"
+            ? " translate-x-0 transition-all  ease-in-out duration-700 delay-100 bg-[#032046]  text-white min-h-full  w-72 py-4  "
+            : " -translate-x-[100vw] opacity-0 inset-0 w-0 transition-all duration-500  delay-150 ease-in-out"
         }`}>
         <div className='px-5'>
           <img src={logo} alt='' className='w-10/12' />
