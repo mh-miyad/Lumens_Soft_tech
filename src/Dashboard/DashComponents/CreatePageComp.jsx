@@ -78,12 +78,12 @@ const CreatePageComp = () => {
           <div className='mt-10 space-x-5'>
             <button
               type='reset'
-              className=' bg-red-400 text-white px-3 py-2 rounded-2xl'>
+              className=' bg-red-400 text-white px-5 py-2 rounded'>
               Cancel
             </button>
             <button
               type='submit'
-              className=' bg-cyan-500 text-white px-3 py-2 rounded-2xl'>
+              className=' bg-cyan-500 text-white px-5 py-2 rounded'>
               Submit
             </button>
           </div>

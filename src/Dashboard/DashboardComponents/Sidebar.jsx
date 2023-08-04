@@ -64,7 +64,7 @@ const Sidebar = () => {
             icon={<RiPagesLine />}
             lebel={"All Pages "}
             menu={[
-              { name: "About Us" },
+              { name: "About Us", router: "about_page" },
               { name: "Blog", router: "blogSection" },
               { name: "Services" },
               { name: "Landing Page" },
