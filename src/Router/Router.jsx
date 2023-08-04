@@ -11,6 +11,7 @@ import Layout from "../Layout/Layout";
 import MainPages from "../Dashboard/Pages/MainPages";
 import BlogCreate from "../Dashboard/Pages/BlogCreate";
 import CreatePages from "../Dashboard/Pages/CreatePages";
+import ProjectList from "../Dashboard/Pages/ProjectList";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/create_page",
         element: <CreatePages />,
+      },
+      {
+        path: "/admin/project_list",
+        element: <ProjectList />,
       },
       {
         path: "/admin/blogSection",

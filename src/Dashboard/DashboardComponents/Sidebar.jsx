@@ -50,7 +50,7 @@ const Sidebar = () => {
             lebel={"Dashboard"}
             menu={[
               { name: "Create Pages ", router: "create_page" },
-              { name: "Project List" },
+              { name: "Project List", router: "project_list" },
               { name: "Client List " },
             ]}
           />

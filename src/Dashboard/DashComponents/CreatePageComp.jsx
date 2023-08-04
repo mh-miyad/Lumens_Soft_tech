@@ -20,10 +20,10 @@ const CreatePageComp = () => {
     console.log(data);
   };
   return (
-    <div className='border'>
-      <div className='px-10 py-20'>
+    <div className='border-s-2 border-s-blue-500 shadow-2xl  rounded-lg '>
+      <div className=' p-10 md:px-10 md:py-20'>
         <form action='#' onSubmit={handelSubmit}>
-          <h2 className='  mb-10 border-l-4 text-2xl w-1/2 mx-auto  border-l-blue-800 rounded'>
+          <h2 className='  mb-10 border-l-4 text-2xl md:w-1/2 mx-auto  border-l-blue-800 rounded'>
             {" "}
             Create New Project{" "}
           </h2>
