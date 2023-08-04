@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/lumenlogo/lumenlogo/lumensofttech-01.svg";
-import { useState } from "react";
+
 import { AiOutlineDashboard, AiFillAppstore } from "react-icons/ai";
 import { RiPagesLine } from "react-icons/ri";
 import { FaLayerGroup, FaUsers } from "react-icons/fa";
@@ -51,7 +51,7 @@ const Sidebar = () => {
             menu={[
               { name: "Create Pages ", router: "create_page" },
               { name: "Project List", router: "project_list" },
-              { name: "Client List " },
+              { name: "Client List ", router: "client_list" },
             ]}
           />
           <DropDownMenu

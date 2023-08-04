@@ -13,6 +13,7 @@ import BlogCreate from "../Dashboard/Pages/BlogCreate";
 import CreatePages from "../Dashboard/Pages/CreatePages";
 import ProjectList from "../Dashboard/Pages/ProjectList";
 import AboutUSPage from "../Dashboard/Pages/AboutUSPage";
+import CreateClientList from "../Dashboard/Pages/CreateClientList";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/create_page",
         element: <CreatePages />,
+      },
+      {
+        path: "/admin/client_list",
+        element: <CreateClientList />,
       },
       {
         path: "/admin/project_list",
