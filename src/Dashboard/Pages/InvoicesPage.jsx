@@ -3,7 +3,7 @@ import React from "react";
 const InvoicesPage = () => {
   return (
     <div>
-      <div className='bg-emerald-200 p-10'>
+      <div className='bg-emerald-200 px-10 py-5'>
         <h3 className='text-5xl font-bold text-right mb-5'>INVOICE</h3>
         <form action='#'>
           <div className='flex justify-between '>
