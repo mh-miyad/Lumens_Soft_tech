@@ -238,7 +238,7 @@ const InvoicesPage = () => {
             </div>
           </div>
           <div>
-            <div className='mt-10 space-x-5'>
+            <div className='mt-10 space-x-5 flex gap-4'>
               <button
                 type='reset'
                 className=' bg-red-400 text-white px-5 py-2 rounded'>
