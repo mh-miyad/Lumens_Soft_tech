@@ -17,6 +17,8 @@ import CreateClientList from "../Dashboard/Pages/CreateClientList";
 import TeamCreate from "../Dashboard/Pages/TeamCreate";
 import ServicesPage from "../Dashboard/Pages/ServicesPage";
 import InvoicesPage from "../Dashboard/Pages/InvoicesPage";
+import Login from "../Pages/Login";
+import PrivateRoute from "../Private/PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,11 +52,19 @@ const router = createBrowserRouter([
         path: "/blogs",
         element: <Blogs />,
       },
+      {
+        path: "/login",
+        element: <Login />,
+      },
     ],
   },
   {
     path: "/admin",
-    element: <Layout />,
+    element: (
+      <PrivateRoute>
+        <Layout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/admin",

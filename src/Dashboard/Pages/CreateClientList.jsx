@@ -97,7 +97,7 @@ const CreateClientList = () => {
               className='border-none  focus:border-none'
             />
           </div>
-          <div className='mt-10 space-x-5'>
+          <div className='mt-10 space-x-5 flex '>
             <button
               type='reset'
               className=' bg-red-400 text-white px-5 py-2 rounded'>

@@ -1,9 +1,9 @@
 import React from "react";
-
+import logo from "../../assets/lumenlogo/lumenlogo/lumensofttech-01.svg";
 const MainPages = () => {
   return (
-    <div>
-      <div className='text-2xl text-center mt-20'> Welcome Dashboard </div>
+    <div className='bg-gray-500'>
+      <img src={logo} alt='' className='md:w-1/2  mx-auto ' />
     </div>
   );
 };
