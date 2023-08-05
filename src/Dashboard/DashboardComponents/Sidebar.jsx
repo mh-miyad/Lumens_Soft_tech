@@ -73,7 +73,7 @@ const Sidebar = () => {
               menu={[
                 { name: "About Us", router: "about_page" },
                 { name: "Blog", router: "blogSection" },
-                { name: "Services" },
+                { name: "Services", router: "service_page" },
                 { name: "Landing Page" },
               ]}
             />
@@ -100,7 +100,7 @@ const Sidebar = () => {
             <DropDownMenu
               icon={<LiaFileInvoiceDollarSolid />}
               lebel={"Invoices"}
-              menu={[{ name: "Invoices List " }]}
+              menu={[{ name: "Invoices List ", router: "invoices_page" }]}
             />
             <DropDownMenu
               icon={<HiOutlineMail />}

@@ -15,6 +15,8 @@ import ProjectList from "../Dashboard/Pages/ProjectList";
 import AboutUSPage from "../Dashboard/Pages/AboutUSPage";
 import CreateClientList from "../Dashboard/Pages/CreateClientList";
 import TeamCreate from "../Dashboard/Pages/TeamCreate";
+import ServicesPage from "../Dashboard/Pages/ServicesPage";
+import InvoicesPage from "../Dashboard/Pages/InvoicesPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -77,6 +79,14 @@ const router = createBrowserRouter([
       {
         path: "/admin/blogSection",
         element: <BlogCreate />,
+      },
+      {
+        path: "/admin/service_page",
+        element: <ServicesPage />,
+      },
+      {
+        path: "/admin/invoices_page",
+        element: <InvoicesPage />,
       },
       {
         path: "/admin/team_list",
