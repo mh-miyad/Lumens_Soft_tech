@@ -1,12 +1,12 @@
 import React, { createContext, useState } from "react";
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(null);
   const [openMenu, setOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(null);
+  const [isAdmin, setAdmin] = useState(null);
   const userName = "miyad";
   const adminPassword = "miyad";
-  const [isAdmin, setAdmin] = useState(false);
   const Auth = {
     user,
     setUser,

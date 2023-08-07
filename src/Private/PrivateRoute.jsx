@@ -1,13 +1,12 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
 import { Spinner } from "flowbite-react";
 import { Navigate, useLocation } from "react-router-dom";
 
 const PrivateRoute = ({ children }) => {
   const location = useLocation();
-
   const { user, isAdmin, loading } = useContext(AuthContext);
+
   if (loading) {
     return (
       <div className='flex justify-center items-center h-screen bg-gray-500'>
@@ -15,10 +14,12 @@ const PrivateRoute = ({ children }) => {
       </div>
     );
   }
-  if (!loading && user && isAdmin) {
+
+  if (user && isAdmin) {
     return children;
   }
-  return <Navigate to='/login' state={{ from: location }} replace></Navigate>;
+
+  return <Navigate to='/login' state={{ from: location }} replace />;
 };
 
 export default PrivateRoute;

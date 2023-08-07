@@ -11,7 +11,7 @@ const Login = () => {
 
     userName,
     adminPassword,
-    isAdmin,
+
     setLoading,
 
     setAdmin,
@@ -19,20 +19,23 @@ const Login = () => {
   const handleForm = (e) => {
     setLoading(true);
     e.preventDefault();
+    const form = e.target;
 
-    const name = e.target.admin.value;
-    const pass = e.target.password.value;
+    const name = form.admin.value;
+    const pass = form.password.value;
     if (name === userName && pass === adminPassword) {
       setAdmin(true);
-      setLoading(false);
       setUser(true);
-      const form = e.target;
+      setLoading(false);
       form.reset();
       navigate("/admin");
+    } else {
+      setLoading(true);
+      setAdmin(false);
+      setUser(false);
     }
   };
 
-  console.log(isAdmin);
   return (
     <div className=''>
       <div className='h-72  flex justify-center items-center text-5xl uppercase bg-gradient-to-tr from-fuchsia-900 via-indigo-900 to-blue-900 text-white '>
