@@ -2,14 +2,16 @@ import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import React from "react";
 import { useContext } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     setUser,
 
     userName,
     adminPassword,
-
+    isAdmin,
     setLoading,
 
     setAdmin,
@@ -26,8 +28,11 @@ const Login = () => {
       setUser(true);
       const form = e.target;
       form.reset();
+      navigate("/admin");
     }
   };
+
+  console.log(isAdmin);
   return (
     <div className=''>
       <div className='h-72  flex justify-center items-center text-5xl uppercase bg-gradient-to-tr from-fuchsia-900 via-indigo-900 to-blue-900 text-white '>
