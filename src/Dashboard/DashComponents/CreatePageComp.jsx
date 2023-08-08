@@ -1,6 +1,7 @@
 import { TextField } from "@mui/material";
+import axios from "axios";
 import React from "react";
-
+import toast, { Toaster } from "react-hot-toast";
 const CreatePageComp = () => {
   const handelSubmit = (event) => {
     event.preventDefault();
@@ -17,7 +18,16 @@ const CreatePageComp = () => {
       companyPhone,
       clientName,
     };
-    console.log(data);
+    axios
+      .post("http://localhost:5000/createProject", {
+        data,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
   return (
     <div className='border-s-2 border-s-blue-500 shadow-2xl  rounded-lg '>
@@ -89,6 +99,7 @@ const CreatePageComp = () => {
           </div>
         </form>
       </div>
+      <Toaster />
     </div>
   );
 };
