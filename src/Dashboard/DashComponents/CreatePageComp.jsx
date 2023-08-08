@@ -23,7 +23,10 @@ const CreatePageComp = () => {
         data,
       })
       .then(function (response) {
-        console.log(response);
+        if (response.data.acknowledged) {
+          toast.success("Project created successfully");
+          form.reset();
+        }
       })
       .catch(function (error) {
         console.log(error);

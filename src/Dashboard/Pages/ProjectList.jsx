@@ -1,7 +1,23 @@
+import axios from "axios";
 import { Avatar, Dropdown } from "flowbite-react";
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const ProjectList = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/allProjectList")
+      .then(function (response) {
+        setData(response.data);
+        console.log(response);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, []);
   return (
     <div class='relative overflow-x-auto shadow-md sm:rounded-lg'>
       <table className='w-full text-sm  text-left text-gray-500 dark:text-gray-400'>
@@ -30,25 +46,35 @@ const ProjectList = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
-            <td className='w-4 p-4 bg-cyan-500 text-white'>
-              <div className='flex items-center'>
-                <label>1</label>
-              </div>
-            </td>
+          {data.map((ele, index) => (
+            <tr
+              key={ele._id}
+              className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
+              <td className='w-4 p-4 bg-cyan-500 text-white'>
+                <div className='flex items-center'>
+                  <label>{index + 1}</label>
+                </div>
+              </td>
 
-            <th scope='row' className='px-6 py-4 bg-[#4181D6] text-white'>
-              Web development
-            </th>
-            <td className='px-6 py-4 bg-[#4181D6] text-white font-medium whitespace-nowrap dark:text-white'>
-              Azmir uddin
-            </td>
+              <th scope='row' className='px-6 py-4 bg-[#4181D6] text-white'>
+                {ele.serviceName}
+              </th>
+              <td className='px-6 py-4 bg-[#4181D6] text-white font-medium whitespace-nowrap dark:text-white'>
+                {ele.clientName}
+              </td>
 
-            <td className='px-6 py-4 bg-[#4181D6] text-white'>XYZ</td>
+              <td className='px-6 py-4 bg-[#4181D6] text-white'>
+                {ele.companyName}
+              </td>
 
-            <td className='px-6 py-4 bg-[#4181D6] text-white'>xyz@gmail.com</td>
-            <td className='px-6 py-4 bg-[#4181D6] text-white'>102910290129</td>
-          </tr>
+              <td className='px-6 py-4 bg-[#4181D6] text-white'>
+                {ele.companyEmail}
+              </td>
+              <td className='px-6 py-4 bg-[#4181D6] text-white'>
+                {ele.companyPhone}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
