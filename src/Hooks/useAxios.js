@@ -6,8 +6,8 @@ const useAxios = () => {
   const [error, setError] = useState(null);
 
   const instance = axios.create({
-    // baseURL: "https://lumen-beckend.vercel.app",
-    baseURL: "http://localhost:5000",
+    baseURL: "https://lumen-beckend.vercel.app",
+    // baseURL: "http://localhost:5000",
   });
 
   const get = async (url) => {
