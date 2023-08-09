@@ -31,6 +31,17 @@ async function run() {
     const createProjectCollection = client
       .db("projectDB")
       .collection("project");
+    const createClientCollection = client.db("clientDB").collection("client");
+    app.post("/createClient", async (req, res) => {
+      const data = req.body;
+
+      try {
+        const result = await createClientCollection.insertOne(data);
+        res.send(result);
+      } catch (error) {
+        res.send(error);
+      }
+    });
     app.post("/createProject", async (req, res) => {
       const data = req.body;
 
@@ -39,6 +50,27 @@ async function run() {
         res.send(result);
       } catch (error) {
         res.send(error);
+      }
+    });
+    app.get("/allClientList", async (req, res) => {
+      const result = await createClientCollection.find().toArray();
+      res.send(result);
+    });
+    app.delete("/clientDelete/:id", async (req, res) => {
+      try {
+        const id = req.params.id;
+
+        const query = { _id: new ObjectId(id) };
+        const result = await createClientCollection.deleteOne(query);
+
+        if (result.deletedCount === 1) {
+          res.status(200).json({ message: "Document deleted successfully" });
+        } else {
+          res.status(404).json({ message: "Document not found" });
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "An error occurred" });
       }
     });
     app.get("/allProjectList", async (req, res) => {
