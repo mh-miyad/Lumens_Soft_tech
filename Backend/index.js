@@ -1,4 +1,4 @@
-import { MongoClient, ServerApiVersion } from "mongodb";
+import { MongoClient, ObjectId, ServerApiVersion } from "mongodb";
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
@@ -32,7 +32,8 @@ async function run() {
       .db("projectDB")
       .collection("project");
     app.post("/createProject", async (req, res) => {
-      const { data } = req.body;
+      const data = req.body;
+
       try {
         const result = await createProjectCollection.insertOne(data);
         res.send(result);
@@ -44,7 +45,23 @@ async function run() {
       const result = await createProjectCollection.find().toArray();
       res.send(result);
     });
+    app.delete("/deleteOne/:id", async (req, res) => {
+      try {
+        const id = req.params.id;
 
+        const query = { _id: new ObjectId(id) };
+        const result = await createProjectCollection.deleteOne(query);
+
+        if (result.deletedCount === 1) {
+          res.status(200).json({ message: "Document deleted successfully" });
+        } else {
+          res.status(404).json({ message: "Document not found" });
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "An error occurred" });
+      }
+    });
     //* Here  Router is connected
     await client.db("admin").command({ ping: 1 });
     console.log(

@@ -6,7 +6,8 @@ const useAxios = () => {
   const [error, setError] = useState(null);
 
   const instance = axios.create({
-    baseURL: "https://lumen-beckend.vercel.app",
+    // baseURL: "https://lumen-beckend.vercel.app",
+    baseURL: "http://localhost:5000",
   });
 
   const get = async (url) => {
@@ -21,7 +22,18 @@ const useAxios = () => {
       throw error;
     }
   };
-
+  const post = async (url, data) => {
+    try {
+      setLoading(true);
+      const response = await instance.post(url, data);
+      setLoading(false);
+      return response.data;
+    } catch (error) {
+      setLoading(false);
+      setError(error);
+      throw error;
+    }
+  };
   const put = async (url, data) => {
     try {
       setLoading(true);
@@ -61,7 +73,7 @@ const useAxios = () => {
     }
   };
 
-  return { loading, error, get, put, del, patch };
+  return { loading, error, get, post, put, del, patch };
 };
 
 export default useAxios;

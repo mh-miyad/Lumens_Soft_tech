@@ -1,8 +1,11 @@
 import { TextField } from "@mui/material";
 import axios from "axios";
 import React from "react";
+import { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import useAxios from "../../Hooks/useAxios";
 const CreatePageComp = () => {
+  const { loading, post, error } = useAxios();
   const handelSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -18,18 +21,17 @@ const CreatePageComp = () => {
       companyPhone,
       clientName,
     };
-    axios
-      .post("http://localhost:5000/createProject", {
-        data,
+
+    post("/createProject", data)
+      .then((response) => {
+        console.log("Response:", response);
+        toast.success("Project created successfully!");
+        form.reset();
       })
-      .then(function (response) {
-        if (response.data.acknowledged) {
-          toast.success("Project created successfully");
-          form.reset();
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
+      .catch((error) => {
+        console.error("Error:", error);
+        // Handle error, show a toast, etc.
+        toast.error("An error occurred while creating the project.");
       });
   };
   return (
