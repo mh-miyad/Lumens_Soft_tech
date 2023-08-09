@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import useAxios from "../../Hooks/useAxios";
 import { toast } from "react-hot-toast";
+import { Spinner } from "flowbite-react";
 
 const ProjectList = () => {
   const { loading, get, del } = useAxios();
@@ -28,7 +29,19 @@ const ProjectList = () => {
         console.error("DELETE Error:", error);
       });
   };
-  return <Table data={data} deleteData={deleteData} key={data} />;
+  return (
+    <>
+      {loading ? (
+        <>
+          <div className='flex justify-center h-screen items-center'>
+            <Spinner color={"purple"} size={"2xl"} />
+          </div>
+        </>
+      ) : (
+        <Table data={data} deleteData={deleteData} key={data} />
+      )}
+    </>
+  );
 };
 
 export default ProjectList;

@@ -67,6 +67,10 @@ async function run() {
       const result = await createClientCollection.find().toArray();
       res.send(result);
     });
+    app.get("/teamList", async (req, res) => {
+      const result = await teamCollection.find().toArray();
+      res.send(result);
+    });
     app.delete("/clientDelete/:id", async (req, res) => {
       try {
         const id = req.params.id;
