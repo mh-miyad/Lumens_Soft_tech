@@ -32,6 +32,17 @@ async function run() {
       .db("projectDB")
       .collection("project");
     const createClientCollection = client.db("clientDB").collection("client");
+    const teamCollection = client.db("teamDB").collection("client");
+    app.post("/teamAdd", async (req, res) => {
+      const data = req.body;
+
+      try {
+        const result = await teamCollection.insertOne(data);
+        res.send(result);
+      } catch (error) {
+        res.send(error);
+      }
+    });
     app.post("/createClient", async (req, res) => {
       const data = req.body;
 

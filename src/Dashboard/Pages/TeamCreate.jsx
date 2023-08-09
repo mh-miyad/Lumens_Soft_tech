@@ -1,7 +1,10 @@
 import { TextField } from "@mui/material";
 import React from "react";
-// import Box from "@mui/material/Box";
+import useAxios from "../../Hooks/useAxios";
+import { Toaster, toast } from "react-hot-toast";
+
 const TeamCreate = () => {
+  const { loading, post, get, del } = useAxios();
   const handelSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -29,7 +32,17 @@ const TeamCreate = () => {
       number,
       description,
     };
-    console.log(data);
+    post("/teamAdd", data)
+      .then((response) => {
+        console.log("Response:", response);
+        toast.success("Team Member Create  successfully!");
+        // form.reset();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        // Handle error, show a toast, etc.
+        toast.error("An error occurred while creating the project.");
+      });
   };
   return (
     <div className='border-s-2 border-s-blue-500 shadow-2xl  rounded-lg '>
@@ -77,7 +90,7 @@ const TeamCreate = () => {
               id='outlined-basic'
               label='Skills '
               name='skill_1'
-              type='email'
+              type='text'
               variant='outlined'
               autoComplete='off'
               className='border-none  focus:border-none'
@@ -86,7 +99,7 @@ const TeamCreate = () => {
               id='outlined-basic'
               label='Linkedin Link '
               name='linkedin'
-              type='number'
+              type='text'
               variant='outlined'
               autoComplete='off'
               className='border-none  focus:border-none'
@@ -152,6 +165,7 @@ const TeamCreate = () => {
           </div>
         </form>
       </div>
+      <Toaster />
     </div>
   );
 };
