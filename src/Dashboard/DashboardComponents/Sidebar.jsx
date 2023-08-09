@@ -56,7 +56,7 @@ const Sidebar = () => {
               icon={<AiOutlineDashboard />}
               lebel={"Dashboard"}
               menu={[
-                { name: "Create Pages ", router: "create_page" },
+                { name: "Create Project ", router: "create_page" },
                 { name: "Project List", router: "project_list" },
                 { name: "Client List ", router: "client_list" },
               ]}
