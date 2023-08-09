@@ -88,6 +88,23 @@ async function run() {
         res.status(500).json({ message: "An error occurred" });
       }
     });
+    app.delete("/teamDelete/:id", async (req, res) => {
+      try {
+        const id = req.params.id;
+
+        const query = { _id: new ObjectId(id) };
+        const result = await teamCollection.deleteOne(query);
+
+        if (result.deletedCount === 1) {
+          res.status(200).json({ message: "Team Member deleted successfully" });
+        } else {
+          res.status(404).json({ message: "Team Member is  not found" });
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "An error occurred" });
+      }
+    });
     app.get("/allProjectList", async (req, res) => {
       const result = await createProjectCollection.find().toArray();
       res.send(result);

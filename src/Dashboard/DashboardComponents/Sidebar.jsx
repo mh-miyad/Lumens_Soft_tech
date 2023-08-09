@@ -112,7 +112,7 @@ const Sidebar = () => {
               lebel={"Team Managers"}
               menu={[
                 { name: "Team Create ", router: "team_list" },
-                { name: "Team Details " },
+                { name: "Team Details ", router: "team_details" },
               ]}
             />
             <li className='flex md:hidden '>

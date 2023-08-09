@@ -67,7 +67,7 @@ const TeamCreate = () => {
     <>
       {loading ? (
         <>
-          <Spinner color={"failure"} />
+          <Spinner color={"failure"} className='mx-auto' size={"xl"} />
         </>
       ) : (
         <div className='border-s-2 border-s-blue-500 shadow-2xl  rounded-lg '>

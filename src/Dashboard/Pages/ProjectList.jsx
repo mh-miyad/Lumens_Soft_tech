@@ -31,15 +31,7 @@ const ProjectList = () => {
   };
   return (
     <>
-      {loading ? (
-        <>
-          <div className='flex justify-center '>
-            <Spinner color={"purple"} size={"xl"} />
-          </div>
-        </>
-      ) : (
-        <Table data={data} deleteData={deleteData} key={data} />
-      )}
+      <Table data={data} deleteData={deleteData} key={data} />
     </>
   );
 };

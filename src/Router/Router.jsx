@@ -19,6 +19,7 @@ import ServicesPage from "../Dashboard/Pages/ServicesPage";
 import InvoicesPage from "../Dashboard/Pages/InvoicesPage";
 import Login from "../Pages/Login";
 import PrivateRoute from "../Private/PrivateRoute";
+import TeamDetailsDash from "../Dashboard/Pages/TeamDetailsDash";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -101,6 +102,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/team_list",
         element: <TeamCreate />,
+      },
+      {
+        path: "/admin/team_details",
+        element: <TeamDetailsDash />,
       },
     ],
   },
