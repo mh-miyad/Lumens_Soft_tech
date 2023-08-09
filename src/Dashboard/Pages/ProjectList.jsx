@@ -33,8 +33,8 @@ const ProjectList = () => {
     <>
       {loading ? (
         <>
-          <div className='flex justify-center h-screen items-center'>
-            <Spinner color={"purple"} size={"2xl"} />
+          <div className='flex justify-center '>
+            <Spinner color={"purple"} size={"xl"} />
           </div>
         </>
       ) : (
