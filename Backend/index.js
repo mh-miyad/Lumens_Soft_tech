@@ -32,12 +32,23 @@ async function run() {
       .db("projectDB")
       .collection("project");
     const createClientCollection = client.db("clientDB").collection("client");
-    const teamCollection = client.db("teamDB").collection("client");
+    const teamCollection = client.db("teamDB").collection("teams");
+    const blogCollection = client.db("blogDB").collection("blog");
     app.post("/teamAdd", async (req, res) => {
       const data = req.body;
 
       try {
         const result = await teamCollection.insertOne(data);
+        res.send(result);
+      } catch (error) {
+        res.send(error);
+      }
+    });
+    app.post("/blogAdd", async (req, res) => {
+      const data = req.body;
+
+      try {
+        const result = await blogCollection.insertOne(data);
         res.send(result);
       } catch (error) {
         res.send(error);
@@ -67,6 +78,10 @@ async function run() {
       const result = await createClientCollection.find().toArray();
       res.send(result);
     });
+    app.get("/blogList", async (req, res) => {
+      const result = await blogCollection.find().toArray();
+      res.send(result);
+    });
     app.get("/teamList", async (req, res) => {
       const result = await teamCollection.find().toArray();
       res.send(result);
@@ -82,6 +97,23 @@ async function run() {
           res.status(200).json({ message: "Document deleted successfully" });
         } else {
           res.status(404).json({ message: "Document not found" });
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "An error occurred" });
+      }
+    });
+    app.delete("/blogDelete/:id", async (req, res) => {
+      try {
+        const id = req.params.id;
+
+        const query = { _id: new ObjectId(id) };
+        const result = await blogCollection.deleteOne(query);
+
+        if (result.deletedCount === 1) {
+          res.status(200).json({ message: "Blog is  deleted successfully" });
+        } else {
+          res.status(404).json({ message: "Blog  is  not found" });
         }
       } catch (error) {
         console.error(error);
