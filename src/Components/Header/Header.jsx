@@ -20,7 +20,7 @@ const Header = () => {
       });
     });
   }, []);
-
+  const menuItems = [{}, {}, {}];
   return (
     <div>
       <header className='header '>
@@ -51,10 +51,11 @@ const Header = () => {
               <li className=' '>
                 <NavLink to={"/about"}>About Us </NavLink>
               </li>
-              <li className='  hover:text-blue-500'>
-                <NavLink to={"/services"}>
-                  <DynamicDrop lebel={"Services "} />
-                </NavLink>
+              <li className=''>
+                <div className='flex justify-between'>
+                  <NavLink to={"/services"}> Services </NavLink>
+                  <DynamicDrop menu={[{ _id: 1210291029, name: "services" }]} />
+                </div>
               </li>
               <li className=' '>
                 <NavLink to={"/blogs"}>Blogs</NavLink>

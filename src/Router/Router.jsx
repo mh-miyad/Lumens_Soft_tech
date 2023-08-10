@@ -21,6 +21,7 @@ import Login from "../Pages/Login";
 import PrivateRoute from "../Private/PrivateRoute";
 import TeamDetailsDash from "../Dashboard/Pages/TeamDetailsDash";
 import DaynamicDropdown from "../Dashboard/Pages/DaynamicDropdown";
+import ServiceDetails from "../Pages/ServiceDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/team/:id",
         element: <TeamDetails />,
+      },
+      {
+        path: "/serviceDetails/:id",
+        element: <ServiceDetails />,
       },
       {
         path: "/contact",
