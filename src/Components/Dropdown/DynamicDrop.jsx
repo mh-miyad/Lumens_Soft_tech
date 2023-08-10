@@ -6,7 +6,7 @@ const DynamicDrop = ({ lebel, menu, router }) => {
   const [drop, setdrop] = useState(false);
   return (
     <li
-      className={`py-2 px-4 hover:bg-[#0f2f5a]   ${
+      className={`py-2 px-4 hover:bg-[#080A28]   ${
         drop
           ? " rounded-xl cursor-pointer transition-all duration-150 ease-linear delay-100"
           : ""
@@ -40,19 +40,7 @@ const DynamicDrop = ({ lebel, menu, router }) => {
           drop ? "block" : "hidden"
         } text-white rounded-lg   py-2 mx-2   transition-all duration-150 delay-150 ease-in-out space-y-4`}>
         {menu?.map((e) => (
-          <li className=' flex items-center gap-2 bg-[#062F65] p-2 '>
-            <div>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='16'
-                height='16'
-                fill='currentColor'
-                className='bi bi-circle  '
-                viewBox='0 0 16 16'>
-                <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z' />
-              </svg>
-            </div>
-
+          <li className=' flex items-center gap-2 bg-[#080A28] p-2 '>
             <Link to={`/serviceDetails/${e?._id}`}>
               <div className='cursor-pointer'>{e.name}</div>
             </Link>
