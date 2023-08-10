@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/images/logo (2).svg";
 import { NavLink } from "react-router-dom";
+import DynamicDrop from "../Dropdown/DynamicDrop";
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
@@ -50,8 +51,10 @@ const Header = () => {
               <li className=' '>
                 <NavLink to={"/about"}>About Us </NavLink>
               </li>
-              <li className=' hover:bg-whit hover:text-blue-500e'>
-                <NavLink to={"/services"}>Services</NavLink>
+              <li className='  hover:text-blue-500'>
+                <NavLink to={"/services"}>
+                  <DynamicDrop lebel={"Services "} />
+                </NavLink>
               </li>
               <li className=' '>
                 <NavLink to={"/blogs"}>Blogs</NavLink>

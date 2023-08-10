@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const DropDownMenu = ({ icon, lebel, menu, router }) => {
+const DynamicDrop = ({ icon, lebel, menu, router }) => {
   const [drop, setdrop] = useState(false);
   return (
     <li
@@ -15,7 +15,7 @@ const DropDownMenu = ({ icon, lebel, menu, router }) => {
       <div className='flex items-center justify-between'>
         <div className='flex items-center gap-4 '>
           {" "}
-          {icon} <span className='cursor-pointer'>{lebel}</span>
+          {icon} <span className='cursor-pointer text-white'>{lebel}</span>
         </div>
         {drop ? (
           <svg
@@ -66,5 +66,4 @@ const DropDownMenu = ({ icon, lebel, menu, router }) => {
     </li>
   );
 };
-
-export default DropDownMenu;
+export default DynamicDrop;

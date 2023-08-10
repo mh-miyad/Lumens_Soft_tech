@@ -3,7 +3,7 @@ import JoditEditor from "jodit-react";
 import { useEffect } from "react";
 import useAxios from "../../Hooks/useAxios";
 import { Toaster, toast } from "react-hot-toast";
-import { Table } from "flowbite-react";
+import { Avatar, Table } from "flowbite-react";
 
 const BlogCreate = () => {
   const [data, setData] = useState([]);
@@ -19,10 +19,14 @@ const BlogCreate = () => {
     e.preventDefault();
     const form = e.target;
     const title = e.target.title.value;
+    const title1 = e.target.title1.value;
+    const image = e.target.image.value;
     const blog = e.target.content.value;
     const data = {
       blogTitle: title,
       mainBlog: blog,
+      shortTittle: title1,
+      image: image,
     };
     post("/blogAdd", data)
       .then((response) => {
@@ -77,6 +81,32 @@ const BlogCreate = () => {
               placeholder='Write Your Blog Title Here  '
             />
           </div>
+          <div className='my-5'>
+            <label
+              htmlFor='title1'
+              className='text-2xl text-slate-600 font-extrabold md:text-4xl mb-1'>
+              Short Tittle
+            </label>
+            <input
+              type='text'
+              name='title1'
+              className='border w-full  '
+              placeholder='Write Your Blog Short Reading Title Here  '
+            />
+          </div>
+          <div className='my-5'>
+            <label
+              htmlFor='image'
+              className='text-2xl text-slate-600 font-extrabold md:text-4xl mb-1'>
+              Blog Front Image
+            </label>
+            <input
+              type='text'
+              name='image'
+              className='border w-full  '
+              placeholder='Write Your Blog Front Image Link  Here  '
+            />
+          </div>
           <JoditEditor
             ref={editor}
             value={content}
@@ -103,14 +133,18 @@ const BlogCreate = () => {
         <Table>
           <Table.Head>
             <Table.HeadCell>No.</Table.HeadCell>
+            <Table.HeadCell>Image</Table.HeadCell>
             <Table.HeadCell>Title</Table.HeadCell>
 
             <Table.HeadCell>Action</Table.HeadCell>
           </Table.Head>
           <Table.Body className='divide-y'>
-            {data.map((ele) => (
+            {data.map((ele, index) => (
               <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
-                <Table.Cell>{ele?._id}</Table.Cell>
+                <Table.Cell>{index + 1}</Table.Cell>
+                <Table.Cell>
+                  <Avatar img={ele?.image} />
+                </Table.Cell>
                 <Table.Cell>{ele?.blogTitle}</Table.Cell>
 
                 <Table.Cell>
