@@ -21,6 +21,8 @@ const ServicesPage = () => {
     const des4 = form.des4.value;
     const content = form.content.value;
     const short4 = form.short4.value;
+    const imgUrl1 = form.imgUrl1.value;
+    const imgUrl2 = form.imgUrl2.value;
     const data = {
       short2,
       des2,
@@ -32,6 +34,8 @@ const ServicesPage = () => {
       des3,
       des4,
       content,
+      imgUrl1,
+      imgUrl2,
     };
     post("/serviceCreate", data)
       .then((response) => {
@@ -80,6 +84,24 @@ const ServicesPage = () => {
               type='text'
               label='Title '
               name='title'
+              variant='outlined'
+              autoComplete='off'
+              className='border-none  focus:border-none col-span-2'
+            />
+            <TextField
+              id='outlined-basic'
+              type='text'
+              label='Image Url first  '
+              name='imgUrl1'
+              variant='outlined'
+              autoComplete='off'
+              className='border-none  focus:border-none col-span-2'
+            />
+            <TextField
+              id='outlined-basic'
+              type='text'
+              label='Image Url 2nd  '
+              name='imgUrl2'
               variant='outlined'
               autoComplete='off'
               className='border-none  focus:border-none col-span-2'
