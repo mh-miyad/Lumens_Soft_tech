@@ -20,6 +20,7 @@ import InvoicesPage from "../Dashboard/Pages/InvoicesPage";
 import Login from "../Pages/Login";
 import PrivateRoute from "../Private/PrivateRoute";
 import TeamDetailsDash from "../Dashboard/Pages/TeamDetailsDash";
+import DaynamicDropdown from "../Dashboard/Pages/DaynamicDropdown";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -106,6 +107,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/team_details",
         element: <TeamDetailsDash />,
+      },
+      {
+        path: "/admin/daynamic_Dropdown",
+        element: <DaynamicDropdown />,
       },
     ],
   },

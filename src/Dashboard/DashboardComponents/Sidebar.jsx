@@ -87,14 +87,14 @@ const Sidebar = () => {
               icon={<FcGenealogy />}
               lebel={"UI Elements"}
               menu={[
-                { name: "buttons" },
-                { name: "Alerts" },
-                { name: "Progress Bar" },
-                { name: "Number Counter " },
-                { name: "Service Control " },
-                { name: "Home carousel" },
-                { name: " Testimonials" },
-                { name: " Dropdown Menu " },
+                // { name: "buttons" },
+                // { name: "Alerts" },
+                // { name: "Progress Bar" },
+                // { name: "Number Counter " },
+                // { name: "Service Control " },
+                // { name: "Home carousel" },
+                // { name: " Testimonials" },
+                { name: " Dropdown Menu ", router: "daynamic_Dropdown" },
               ]}
             />
             <DropDownMenu

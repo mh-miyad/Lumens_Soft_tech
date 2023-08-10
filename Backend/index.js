@@ -34,6 +34,18 @@ async function run() {
     const createClientCollection = client.db("clientDB").collection("client");
     const teamCollection = client.db("teamDB").collection("teams");
     const blogCollection = client.db("blogDB").collection("blog");
+    const serviceCollection = client.db("serviceDB").collection("service");
+    const aboutCollection = client.db("aboutDB").collection("about");
+    app.post("/aboutCreate", async (req, res) => {
+      const data = req.body;
+
+      try {
+        const result = await aboutCollection.insertOne(data);
+        res.send(result);
+      } catch (error) {
+        res.send(error);
+      }
+    });
     app.post("/teamAdd", async (req, res) => {
       const data = req.body;
 
@@ -74,6 +86,16 @@ async function run() {
         res.send(error);
       }
     });
+    app.post("/serviceCreate", async (req, res) => {
+      const data = req.body;
+
+      try {
+        const result = await serviceCollection.insertOne(data);
+        res.send(result);
+      } catch (error) {
+        res.send(error);
+      }
+    });
     app.get("/allClientList", async (req, res) => {
       const result = await createClientCollection.find().toArray();
       res.send(result);
@@ -86,6 +108,31 @@ async function run() {
       const result = await teamCollection.find().toArray();
       res.send(result);
     });
+    app.get("/servicesList", async (req, res) => {
+      const result = await serviceCollection.find().toArray();
+      res.send(result);
+    });
+    app.get("/aboutList", async (req, res) => {
+      const result = await aboutCollection.find().toArray();
+      res.send(result);
+    });
+    app.delete("/aboutDelete/:id", async (req, res) => {
+      try {
+        const id = req.params.id;
+
+        const query = { _id: new ObjectId(id) };
+        const result = await aboutCollection.deleteOne(query);
+
+        if (result.deletedCount === 1) {
+          res.status(200).json({ message: "About is  deleted successfully" });
+        } else {
+          res.status(404).json({ message: "About is  not found" });
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "An error occurred" });
+      }
+    });
     app.delete("/clientDelete/:id", async (req, res) => {
       try {
         const id = req.params.id;
@@ -97,6 +144,25 @@ async function run() {
           res.status(200).json({ message: "Document deleted successfully" });
         } else {
           res.status(404).json({ message: "Document not found" });
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "An error occurred" });
+      }
+    });
+    app.delete("/serviceDelete/:id", async (req, res) => {
+      try {
+        const id = req.params.id;
+
+        const query = { _id: new ObjectId(id) };
+        const result = await serviceCollection.deleteOne(query);
+
+        if (result.deletedCount === 1) {
+          res
+            .status(200)
+            .json({ message: "Services  is  deleted successfully" });
+        } else {
+          res.status(404).json({ message: "Services   is  not found" });
         }
       } catch (error) {
         console.error(error);

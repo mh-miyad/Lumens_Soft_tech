@@ -53,9 +53,9 @@ const Header = () => {
               <li className=' hover:bg-whit hover:text-blue-500e'>
                 <NavLink to={"/services"}>Services</NavLink>
               </li>
-              {/* <li className=' '>
+              <li className=' '>
                 <NavLink to={"/blogs"}>Blogs</NavLink>
-              </li> */}
+              </li>
               <li className=' '>
                 <NavLink to={"/team"}>Team</NavLink>
               </li>
