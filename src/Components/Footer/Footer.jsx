@@ -8,9 +8,9 @@ const Footer = () => {
       <FooterBanner />
       <footer className='footer -z-10'>
         <div className='footer bg'></div>
-        <div className='max-w-6xl mx-auto px-16 '>
+        <div className='max-w-6xl mx-auto px-20 md:px-16 '>
           {/* <!-- widget --> */}
-          <div className='f-widget-box'>
+          <div className='f-widget-box '>
             <div className='row'>
               {/* <!-- big col --> */}
               <div className='col-md-6 col-lg-6 col-sm-6 f-big-col'>
