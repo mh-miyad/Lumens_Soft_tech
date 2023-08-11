@@ -15,7 +15,7 @@ const ServicesCard = ({ icon, title, description, index }) => {
           <h3 className='service-two-info-title'>{title}</h3>
           <p>{description}</p>
           <div className='read-btn'>
-            <Link to={"/contact"}>Contact With Us </Link>
+            <Link to={`/serviceDetails/${index}`}> Read More </Link>
           </div>
         </div>
       </div>
