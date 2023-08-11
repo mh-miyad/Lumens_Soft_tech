@@ -44,7 +44,7 @@ const SliderComp = () => {
                 <div className='slide'>
                   <div className='slider-image-layer-two'></div>
                   <div className='slider-pattern-layer'></div>
-                  <div className='max-w-6xl mx-auto '>
+                  <div className='max-w-6xl mx-auto px-20'>
                     {/* content column */}
                     <div className='slider-content'>
                       <div className='slider-con-inner'>
@@ -74,7 +74,7 @@ const SliderComp = () => {
                 <div className='slide'>
                   <div className='slider-image-layer-three'></div>
                   <div className='slider-pattern-layer'></div>
-                  <div className='max-w-6xl mx-auto '>
+                  <div className='max-w-6xl mx-auto px-20 '>
                     {/* content column */}
                     <div className='slider-content'>
                       <div className='slider-con-inner'>
