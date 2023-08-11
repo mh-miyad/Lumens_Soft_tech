@@ -1,6 +1,7 @@
 import React from "react";
 import news6 from "../../assets/images/news-6.jpg";
-const BlogCard = () => {
+import { Link } from "react-router-dom";
+const BlogCard = ({ id }) => {
   return (
     <div>
       <div class='AllBlogFeaturesMainImg'>
@@ -12,9 +13,9 @@ const BlogCard = () => {
         facere? Quaerat iste inventore doloremque exercitationem! ....
       </p>
 
-      <a href='/technology.html' class='blog-btn'>
+      <Link to={`/blogDetails/${id}`} class='blog-btn'>
         Read Blog
-      </a>
+      </Link>
     </div>
   );
 };
