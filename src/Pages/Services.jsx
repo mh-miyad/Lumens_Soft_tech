@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 import { useState } from "react";
 import useAxios from "../Hooks/useAxios";
 import { useEffect } from "react";
+import LoadingComp from "../Components/Loading/LoadingComp";
 AOS.init();
 const Services = () => {
   const [service, setService] = useState([]);
@@ -20,7 +21,7 @@ const Services = () => {
       .catch((error) => {
         console.error("GET Error:", error);
       });
-  }, [service]);
+  }, []);
   return (
     <div>
       <Helmet>
@@ -62,16 +63,22 @@ const Services = () => {
                     commodo libero.
                   </div>
                 </div>
-                <div className='row'>
-                  {service.map((e, index) => (
-                    <ServicesCard
-                      description={e?.content}
-                      icon={e?.imgUrl1}
-                      title={e?.title}
-                      index={index + 1}
-                    />
-                  ))}
-                </div>
+                {loading ? (
+                  <div className='w-1/2 mx-auto '>
+                    <LoadingComp />
+                  </div>
+                ) : (
+                  <div className='row'>
+                    {service.map((e, index) => (
+                      <ServicesCard
+                        description={e?.content}
+                        icon={e?.imgUrl1}
+                        title={e?.title}
+                        index={index + 1}
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
