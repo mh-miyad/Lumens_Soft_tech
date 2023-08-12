@@ -1,6 +1,24 @@
 import React from "react";
 import img1 from "../assets/images/service-web-design.png";
+import { useState } from "react";
+import useAxios from "../Hooks/useAxios";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 const ServiceDetails = () => {
+  const { id } = useParams();
+  const [data, setData] = useState([]);
+  const { loading, get } = useAxios();
+
+  useEffect(() => {
+    get(`/servicesDetails/?id=${id}`)
+      .then((response) => {
+        setData(response);
+      })
+      .catch((error) => {
+        console.error("GET Error:", error);
+      });
+  }, [data]);
+
   return (
     <div>
       <section class='services-all-part-one'>
@@ -34,7 +52,7 @@ const ServiceDetails = () => {
                   <h2 class='service-all-part-heading'>
                     We Provide Best
                     <br />
-                    <span>Web Design</span>
+                    <span>{data?.map((e) => e?.title)}</span>
                   </h2>
                 </div>
                 {/* <!-- details --> */}
@@ -44,11 +62,10 @@ const ServiceDetails = () => {
                     <div class='service-all-details-box'>
                       <span>01</span>
                       <div class='service-all-detail-title'>
-                        HTML 5 development
+                        {data?.map((e) => e?.short1)}
                       </div>
                       <div class='service-all-detail-text'>
-                        We’re committed to building sustainable and high-quality
-                        HTML solutions.
+                        {data?.map((e) => e?.des1)}
                       </div>
                     </div>
                   </div>
@@ -58,11 +75,10 @@ const ServiceDetails = () => {
                     <div class='service-all-details-box'>
                       <span>02</span>
                       <div class='service-all-detail-title'>
-                        CSS 5 development
+                        {data?.map((e) => e?.short2)}
                       </div>
                       <div class='service-all-detail-text'>
-                        We’re committed to building sustainable and high-quality
-                        CSS solutions.
+                        {data?.map((e) => e?.des2)}
                       </div>
                     </div>
                   </div>
@@ -72,11 +88,10 @@ const ServiceDetails = () => {
                     <div class='service-all-details-box'>
                       <span>03</span>
                       <div class='service-all-detail-title'>
-                        JavaScript development
+                        {data?.map((e) => e?.short3)}
                       </div>
                       <div class='service-all-detail-text'>
-                        We’re committed to building sustainable and high-quality
-                        JavaScript solutions.
+                        {data?.map((e) => e?.des3)}
                       </div>
                     </div>
                   </div>
@@ -86,11 +101,10 @@ const ServiceDetails = () => {
                     <div class='service-all-details-box'>
                       <span>04</span>
                       <div class='service-all-detail-title'>
-                        Next.js development
+                        {data?.map((e) => e?.short4)}
                       </div>
                       <div class='service-all-detail-text'>
-                        We’re committed to building sustainable and high-quality
-                        Next.js solutions.
+                        {data?.map((e) => e?.des4)}
                       </div>
                     </div>
                   </div>
@@ -112,7 +126,7 @@ const ServiceDetails = () => {
                   <img src='../images/verify.svg' alt='' />
                 </div>
                 <div class='content-box'>
-                  <h4>Unique Design</h4>
+                  <h4>{data?.map((e) => e?.head1)}</h4>
                   <p>Support and Evolution</p>
                 </div>
                 <span>01</span>
@@ -126,7 +140,7 @@ const ServiceDetails = () => {
                   <img src='../images/verify02.svg' alt='' />
                 </div>
                 <div class='content-box'>
-                  <h4>Fully responsive</h4>
+                  <h4>{data?.map((e) => e?.head2)}</h4>
                   <p>Support and Evolution</p>
                 </div>
                 <span>02</span>
@@ -140,7 +154,7 @@ const ServiceDetails = () => {
                   <img src='../images/verify03.svg' alt='' />
                 </div>
                 <div class='content-box'>
-                  <h4>Advance Technology</h4>
+                  <h4>{data?.map((e) => e?.head3)}</h4>
                   <p>Support and Evolution</p>
                 </div>
                 <span>03</span>

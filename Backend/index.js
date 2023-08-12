@@ -122,6 +122,12 @@ async function run() {
       const result = await teamCollection.find().toArray();
       res.send(result);
     });
+    app.get("/servicesDetails", async (req, res) => {
+      const id = req.query.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await serviceCollection.find(query).toArray();
+      res.send(result);
+    });
     app.get("/servicesList", async (req, res) => {
       const result = await serviceCollection.find().toArray();
       res.send(result);

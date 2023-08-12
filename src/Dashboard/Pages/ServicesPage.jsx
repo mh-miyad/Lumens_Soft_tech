@@ -22,7 +22,9 @@ const ServicesPage = () => {
     const content = form.content.value;
     const short4 = form.short4.value;
     const imgUrl1 = form.imgUrl1.value;
-    const imgUrl2 = form.imgUrl2.value;
+    const head1 = form.head1.value;
+    const head2 = form.head2.value;
+    const head3 = form.head3.value;
     const data = {
       short2,
       des2,
@@ -35,7 +37,9 @@ const ServicesPage = () => {
       des4,
       content,
       imgUrl1,
-      imgUrl2,
+      head1,
+      head2,
+      head3,
     };
     post("/serviceCreate", data)
       .then((response) => {
@@ -97,15 +101,7 @@ const ServicesPage = () => {
               autoComplete='off'
               className='border-none  focus:border-none col-span-2'
             />
-            <TextField
-              id='outlined-basic'
-              type='text'
-              label='Image Url 2nd  '
-              name='imgUrl2'
-              variant='outlined'
-              autoComplete='off'
-              className='border-none  focus:border-none col-span-2'
-            />
+
             <TextField
               id='outlined-basic'
               label='Short Title  One '
@@ -182,6 +178,33 @@ const ServicesPage = () => {
               id='outlined-basic'
               label='Contents'
               name='content'
+              type='text'
+              variant='outlined'
+              autoComplete='off'
+              className='border-none  focus:border-none col-span-2'
+            />
+            <TextField
+              id='outlined-basic'
+              label=' Most Unique Skill or Feature 1'
+              name='head1'
+              type='text'
+              variant='outlined'
+              autoComplete='off'
+              className='border-none  focus:border-none col-span-2'
+            />
+            <TextField
+              id='outlined-basic'
+              label=' Most Unique Skill or Feature 2'
+              name='head2'
+              type='text'
+              variant='outlined'
+              autoComplete='off'
+              className='border-none  focus:border-none col-span-2'
+            />
+            <TextField
+              id='outlined-basic'
+              label=' Most Unique Skill or Feature 3'
+              name='head3'
               type='text'
               variant='outlined'
               autoComplete='off'

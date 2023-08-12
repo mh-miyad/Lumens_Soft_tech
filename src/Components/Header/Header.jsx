@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/images/logo (2).svg";
 import { Link, NavLink } from "react-router-dom";
-// import DynamicDrop from "../Dropdown/DynamicDrop";
-import { Dropdown } from "flowbite-react";
+import useAxios from "../../Hooks/useAxios";
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
@@ -22,29 +21,18 @@ const Header = () => {
       });
     });
   }, []);
-  const [menu1, setMenu] = useState([
-    {
-      name: "web development",
-    },
-    {
-      name: "web development",
-    },
-    {
-      name: "web development",
-    },
-    {
-      name: "web development",
-    },
-    {
-      name: "web development",
-    },
-    {
-      name: "web development",
-    },
-    {
-      name: "web development",
-    },
-  ]);
+  const [service, setService] = useState([]);
+  const { loading, get } = useAxios();
+
+  useEffect(() => {
+    get("/servicesList")
+      .then((response) => {
+        setService(response);
+      })
+      .catch((error) => {
+        console.error("GET Error:", error);
+      });
+  }, [service]);
   return (
     <div>
       <header className='header '>
@@ -116,11 +104,11 @@ const Header = () => {
                       ? "inline-block absolute text-white rounded-lg  py-2 bg-[#3A84A3] lg:bg-[#080A28]   transition-all duration-150 delay-150 ease-in-out  "
                       : "hidden"
                   } `}>
-                  {menu1?.map((e) => (
+                  {service?.map((e) => (
                     <li className=' divide-y-2 divide-white flex items-center gap-2  rounded-lg bg-[#3A84A3] lg:bg-[#080A28] '>
                       <Link to={`/serviceDetails/${e?._id}`}>
                         <div className='cursor-pointer my-2  bg-[#3A84A3]  lg:bg-[#080A28]  hover:lg:bg-[#0d1144]  hover:font-extrabold text-sm px-5 py-2 lg:w-60 '>
-                          {e.name}
+                          {e?.title}
                         </div>
                       </Link>
                     </li>

@@ -4,8 +4,23 @@ import service from "../data/service";
 import { Helmet } from "react-helmet";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useState } from "react";
+import useAxios from "../Hooks/useAxios";
+import { useEffect } from "react";
 AOS.init();
 const Services = () => {
+  const [service, setService] = useState([]);
+  const { loading, get } = useAxios();
+
+  useEffect(() => {
+    get("/servicesList")
+      .then((response) => {
+        setService(response);
+      })
+      .catch((error) => {
+        console.error("GET Error:", error);
+      });
+  }, [service]);
   return (
     <div>
       <Helmet>
@@ -48,12 +63,12 @@ const Services = () => {
                   </div>
                 </div>
                 <div className='row'>
-                  {service.map((e) => (
+                  {service.map((e, index) => (
                     <ServicesCard
-                      description={e.description}
-                      icon={e.icon}
-                      title={e.service_name}
-                      index={e.service_id}
+                      description={e?.content}
+                      icon={e?.imgUrl1}
+                      title={e?.title}
+                      index={index + 1}
                     />
                   ))}
                 </div>
