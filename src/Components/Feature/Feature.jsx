@@ -24,7 +24,7 @@ const Feature = () => {
           {feature.map((e) => (
             <div className='feature-block_one shadow-2xl shadow-indigo-600/40'>
               <div className='feature-block_one-inner'>
-                <a className='overlay-link' href='service-detail.html'></a>
+                <p className='overlay-link'></p>
                 <span className='color-layer'></span>
                 <span className='feature-block_one-icon'>
                   <img src={e.img} alt='' />
