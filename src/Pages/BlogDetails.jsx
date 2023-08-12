@@ -1,8 +1,26 @@
 import React from "react";
 import "./Blog.css";
-import news6 from "../assets/images/news-6.jpg";
+
+import { useState } from "react";
+import { useEffect } from "react";
+import useAxios from "../Hooks/useAxios";
+import { useParams } from "react-router-dom";
 
 const BlogDetails = () => {
+  const { loading, get } = useAxios();
+  const [data, setData] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    get(`/blogDetails/?id=${id}`)
+      .then((response) => {
+        setData(response);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error("GET Error:", error);
+      });
+  }, [data]);
   return (
     <div>
       <section class='bloggerSlide'>
@@ -16,12 +34,10 @@ const BlogDetails = () => {
                     <div class='blog-slider-img'></div>
                     <div class='blog-slider-img-overlay'></div>
                     <div class='blog-slider-info'>
-                      <h1 class='blog-head'>
-                        How to convert A static site with React
-                      </h1>
-                      <a href='/technology.html' class='blog-btn'>
-                        Read Blog
-                      </a>
+                      <h1 class='blog-head'>{data.map((e) => e.blogTitle)}</h1>
+                      <p class='blog-btn w-1/2 mx-auto'>
+                        Read This Blog Bellow
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -51,19 +67,19 @@ const BlogDetails = () => {
                     //Technology
                   </a>
                 </div> */}
-                <div class='AllBlogFeaturesMain'>
-                  {/* <!-- <a href="/technology.html" class="AllBlogFeaturesHead">//Technology</a> --> */}
-                  <h4 class='articleTitle'>
-                    How to convert A static site with React
-                  </h4>
-                  <div class='AllBlogFeaturesMainImg'>
-                    <img src={news6} alt='' />
-                  </div>
+                {data.map((e) => (
+                  <div class='AllBlogFeaturesMain'>
+                    {/* <!-- <a href="/technology.html" class="AllBlogFeaturesHead">//Technology</a> --> */}
+                    <h4 class='articleTitle'>{e?.blogTitle}</h4>
+                    <div class='AllBlogFeaturesMainImg'>
+                      <img src={e?.image} alt='' />
+                    </div>
 
-                  <article class='postArticle'>
-                    <div dangerouslySetInnerHTML={{ __html: mainBlog }} />
-                  </article>
-                </div>
+                    <article class='postArticle'>
+                      <div dangerouslySetInnerHTML={{ __html: e?.mainBlog }} />
+                    </article>
+                  </div>
+                ))}
                 {/* <!-- block --> */}
               </div>
             </div>

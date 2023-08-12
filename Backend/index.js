@@ -2,8 +2,8 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-
 require("dotenv").config();
+
 const port = process.env.PORT || 5000;
 //! Here use Middleware  /
 app.use(express.json());
@@ -106,7 +106,7 @@ async function run() {
       res.send(result);
     });
     app.get("/blogDetails", async (req, res) => {
-      const id = req.params.id;
+      const id = req.query.id;
       const query = { _id: new ObjectId(id) };
       const result = await blogCollection.find(query).toArray();
       res.send(result);
