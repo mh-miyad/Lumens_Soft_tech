@@ -111,6 +111,13 @@ async function run() {
       const result = await blogCollection.find(query).toArray();
       res.send(result);
     });
+    app.get("/teamDetails", async (req, res) => {
+      const id = req.query.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await teamCollection.find(query).toArray();
+      res.send(result);
+    });
+
     app.get("/teamList", async (req, res) => {
       const result = await teamCollection.find().toArray();
       res.send(result);

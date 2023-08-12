@@ -1,12 +1,39 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import team from "../data/team";
 import { TypeAnimation } from "react-type-animation";
 import { Helmet } from "react-helmet";
 import ContactForm from "../Components/Contact/ContactForm";
+import useAxios from "../Hooks/useAxios";
 const TeamDetails = () => {
   const { id } = useParams();
-  const [data] = team?.filter((e) => e.id == id);
+  const { loading, get } = useAxios();
+  const [data, setData] = useState([]);
+  // const [
+  //   name,
+  //   skill_1,
+  //   fb_link,
+  //   linkedin,
+  //   img,
+  //   insta_link,
+  //   skill_2,
+  //   experience,
+  //   email,
+  //   number,
+  //   description,
+  // ] = data;
+  // console.log(name);
+  useEffect(() => {
+    get(`/teamDetails/?id=${id}`)
+      .then((response) => {
+        setData(response);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error("GET Error:", error);
+      });
+  }, []);
+
   const skillsSectionRef = useRef(null);
 
   useEffect(() => {
@@ -53,7 +80,7 @@ const TeamDetails = () => {
     <div>
       <Helmet>
         <meta charSet='utf-8' />
-        <title>{`${data?.name} details -Lumens Soft tech`}</title>
+        <title>{`${data.map((e) => e.name)} details -Lumens Soft tech`}</title>
       </Helmet>
       <section className='team-first'>
         <div className='max-w-6xl mx-auto  container md:px-10 '>
@@ -61,32 +88,34 @@ const TeamDetails = () => {
             <div className='col-md-6 col-sm-12 col-lg-6'>
               <div className='team-mem-info'>
                 <h3>Hello There ...</h3>
-                <h1>{data?.name}</h1>
+                <h1>{data?.map((e) => e.name)}</h1>
 
                 <span className='team-mem-info'>
                   <span className='text-2xl uppercase'> I Am A </span>
-                  <span className='auto-type'>
-                    <TypeAnimation
-                      sequence={[
-                        // Same substring at the start will only be typed once, initially
-                        "Web developer ",
-                        1000,
-                        "Digital Marketer ",
-                        1000,
-                      ]}
-                      speed={50}
-                      style={{ fontSize: "2em" }}
-                      repeat={Infinity}
-                    />
-                  </span>
+                  {data.map((e) => (
+                    <span className='auto-type'>
+                      <TypeAnimation
+                        sequence={[
+                          // Same substring at the start will only be typed once, initially
+                          `${e?.skill_1}`,
+                          1000,
+                          `${e?.skill_2}`,
+                          1000,
+                        ]}
+                        speed={50}
+                        style={{ fontSize: "2em" }}
+                        repeat={Infinity}
+                      />
+                    </span>
+                  ))}
                 </span>
-                <p>{data?.description}</p>
+                {/* <p className='truncate'>{data?.map((e) => e?.description)}</p> */}
               </div>
             </div>
             <div className='col-md-6 col-sm-12 col-lg-6'>
               <div className='team-mem-img'>
                 <div className='team-mem-image'>
-                  <img src={data?.img} alt='' />
+                  <img src={data?.map((e) => e?.img)} alt='' />
                 </div>
               </div>
             </div>
@@ -101,47 +130,50 @@ const TeamDetails = () => {
               <div className='team-single-info'>
                 <div className='team-info-icons'>
                   <a
-                    href={data?.fb || "Not Set "}
+                    href={data?.map((e) => e?.fb_link) || "notification"}
                     className='team-info-icon active'>
                     <i className='fa-brands fa-facebook-f'></i>
                   </a>
                   <a
-                    href={data?.insta || "Not set "}
+                    href={data?.map((e) => e?.insta_link) || "not found"}
                     className='team-info-icon active'>
                     <i className='fa-brands fa-instagram'></i>
                   </a>
                   <a
-                    href={data?.linkDin || "Not Set "}
+                    href={data?.map((e) => e?.linkedin)}
                     className='team-info-icon active'>
                     <i className='fa-brands fa-linkedin-in'></i>
                   </a>
                 </div>
                 <div className='team-img-wrap'>
                   <div className='team-img'>
-                    <img src={data?.img} alt='' />
+                    <img src={data?.map((e) => e?.img)} alt='' />
                   </div>
                 </div>
                 <div className='team-info-wrap'>
-                  <h4 className='team-mem-title'>{data?.name}</h4>
+                  <h4 className='team-mem-title'>
+                    {data?.map((e) => e?.name)}
+                  </h4>
                   <div className='team-info-item team-department'>
                     <h4>Speciality: </h4>
-                    <span>Not Set </span>
+                    <span>{data?.map((e) => e?.skill_1)}</span>
                   </div>
                   <div className='team-info-item'>
                     <h4>Skill: </h4>
-                    <span>{data?.skill}</span>
+                    <span>{data?.map((e) => e?.skill_1)}</span> ,
+                    <span>{data?.map((e) => e?.skill_2)}</span>
                   </div>
                   <div className='team-info-item'>
                     <h4>Experience: </h4>
-                    <span>{data?.experience}</span>
+                    <span>{data?.map((e) => e?.experience)}</span>
                   </div>
                   <div className='team-info-item'>
                     <h4>Email: </h4>
-                    <span>{data?.email}</span>
+                    <span>{data?.map((e) => e?.email)}</span>
                   </div>
                   <div className='team-info-item'>
                     <h4>Phone: </h4>
-                    <span>+88 {data?.mobile}</span>
+                    <span>+88 {data?.map((e) => e?.number)}</span>
                   </div>
                 </div>
               </div>
@@ -159,36 +191,9 @@ const TeamDetails = () => {
                   //personal information
                 </h4>
                 <div className='team-persona-info-text'>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Molestias ab atque dicta tenetur minima distinctio at
-                  assumenda quam enim! Molestiae ducimus eum quaerat aperiam, et
-                  officia deleniti, dolorem velit facere perferendis id omnis
-                  harum ipsum cumque earum magnam nemo! Corporis, aut. Fuga
-                  nobis, sapiente blanditiis earum quos saepe fugit eaque atque
-                  veniam beatae est provident ut voluptatibus, enim quod cum
-                  asperiores sequi laudantium eos eveniet dolorem voluptates
-                  reiciendis inventore. Molestias obcaecati laboriosam voluptate
-                  suscipit tempore aliquam, iusto temporibus recusandae
-                  praesentium quidem, unde ullam velit cum animi repellat
-                  adipisci! Exercitationem, illo! Sint, ipsa! Minus ea nihil
-                  aliquam dolor, sint quidem numquam maxime esse sunt voluptate,
-                  nulla voluptates quas ipsa accusantium saepe at assumenda,
-                  molestias magni sapiente. Iste temporibus modi illo beatae!
+                  {data?.map((e) => e?.description)}
                 </div>
                 <br />
-                <div className='team-persona-info-text'>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Eaque commodi autem minus magni. Quae quia libero cum
-                  doloremque deserunt, cumque quis consequatur, enim voluptates,
-                  veniam inventore nobis totam? Laudantium eveniet reprehenderit
-                  quis vel earum perferendis sequi corrupti aliquam commodi est.
-                  Impedit laudantium ipsa laborum veniam incidunt architecto
-                  itaque fuga possimus veritatis assumenda ex facilis nobis esse
-                  saepe eligendi magni nemo numquam nihil, aspernatur quia
-                  placeat maiores consequatur quae. Odio asperiores perspiciatis
-                  labore quo tenetur nostrum facilis necessitatibus quos vel
-                  veniam!
-                </div>
               </div>
             </div>
           </div>
@@ -202,13 +207,13 @@ const TeamDetails = () => {
               <div id='skill-sect'>
                 <h2>//Skills</h2>
 
-                <p>Web Development</p>
+                <p>{data?.map((e) => e?.skill_1)}</p>
                 <div className='progress'>
                   <div className='progress-bar' data-progress='90'>
                     <span>90%</span>
                   </div>
                 </div>
-                <p>software Development</p>
+                <p>{data?.map((e) => e?.skill_2)}</p>
                 <div className='progress'>
                   <div
                     className='progress-bar progress-bg-2'
@@ -216,14 +221,14 @@ const TeamDetails = () => {
                     <span>80%</span>
                   </div>
                 </div>
-                <p>graphic design</p>
+                {/* <p>graphic design</p>
                 <div className='progress'>
                   <div
                     className='progress-bar progress-bg-4'
                     data-progress='70'>
                     <span>70%</span>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 

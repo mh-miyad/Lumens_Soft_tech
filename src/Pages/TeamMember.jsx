@@ -1,11 +1,25 @@
 import React from "react";
 import TeamCard from "../Components/Teamcard/TeamCard";
-import team from "../data/team";
+// import team from "../data/team";
 import { Helmet } from "react-helmet";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useState } from "react";
+import { useEffect } from "react";
+import useAxios from "../Hooks/useAxios";
 AOS.init();
 const TeamMember = () => {
+  const { loading, get } = useAxios();
+  const [team, setTeam] = useState([]);
+  useEffect(() => {
+    get("/teamList")
+      .then((response) => {
+        setTeam(response);
+      })
+      .catch((error) => {
+        console.error("GET Error:", error);
+      });
+  }, [team]);
   return (
     <div className=''>
       <Helmet>
@@ -31,13 +45,13 @@ const TeamMember = () => {
           <div className='row'>
             {team.map((e) => (
               <TeamCard
-                key={e.id}
+                key={e._id}
                 img={e.img}
                 name={e.name}
-                skill={e.skill}
-                fb={e.fb}
-                insta={e.insta}
-                id={e.id}
+                skill={e.skill_1}
+                fb={e.fb_link}
+                insta={e.insta_link}
+                id={e._id}
               />
             ))}
           </div>
