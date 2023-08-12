@@ -2,7 +2,22 @@ import React from "react";
 import "./Blog.css";
 import news6 from "../assets/images/news-6.jpg";
 import BlogCard from "../Components/BlogCard/BlogCard";
+import { useState } from "react";
+import { useEffect } from "react";
+import useAxios from "../Hooks/useAxios";
+
 const Blogs = () => {
+  const { loading, get } = useAxios();
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    get("/blogList")
+      .then((response) => {
+        setData(response);
+      })
+      .catch((error) => {
+        console.error("GET Error:", error);
+      });
+  }, [data]);
   return (
     <div>
       <section class='bloggerSlide'>
@@ -104,7 +119,15 @@ const Blogs = () => {
                   <a href='/technology.html' class='AllBlogFeaturesHead'>
                     //Technology
                   </a>
-                  <BlogCard />
+                  {data.map((ele) => (
+                    <BlogCard
+                      key={ele._id}
+                      _id={ele._id}
+                      blogTitle={ele.blogTitle}
+                      img={ele.image}
+                      shortTitle={ele.shortTitle}
+                    />
+                  ))}
                 </div>
                 {/* <!-- block --> */}
               </div>

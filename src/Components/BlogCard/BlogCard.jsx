@@ -1,19 +1,16 @@
 import React from "react";
 import news6 from "../../assets/images/news-6.jpg";
 import { Link } from "react-router-dom";
-const BlogCard = ({ id }) => {
+const BlogCard = ({ _id, img, shortTitle, blogTitle }) => {
   return (
     <div>
       <div class='AllBlogFeaturesMainImg'>
-        <img src={news6} alt='' />
+        <img src={img} alt='' />
       </div>
-      <h4 class='articleTitle'>How to convert A static site with React</h4>
-      <p class='articalContent'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto,
-        facere? Quaerat iste inventore doloremque exercitationem! ....
-      </p>
+      <h4 class='articleTitle'> {blogTitle}</h4>
+      <p class='articalContent'>{shortTitle}</p>
 
-      <Link to={`/blogDetails/${id}`} class='blog-btn'>
+      <Link to={`/blogDetails/${_id}`} class='blog-btn'>
         Read Blog
       </Link>
     </div>
