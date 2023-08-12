@@ -1,11 +1,25 @@
 import React from "react";
 
-import team from "../../data/team";
+// import team from "../../data/team";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import useAxios from "../../Hooks/useAxios";
+import { useState } from "react";
+import { useEffect } from "react";
 AOS.init();
 const TeamCom = () => {
+  const { loading, get } = useAxios();
+  const [team, setTeam] = useState([]);
+  useEffect(() => {
+    get("/teamList")
+      .then((response) => {
+        setTeam(response);
+      })
+      .catch((error) => {
+        console.error("GET Error:", error);
+      });
+  }, [team]);
   return (
     <div>
       <section className='team-one' id='team'>
@@ -44,10 +58,14 @@ const TeamCom = () => {
                               data-wow-delay='0ms'
                               data-wow-duration='1500ms'>
                               <div className='team_one-image'>
-                                <img src={e.img} alt='' className=' max-h-64' />
+                                <img
+                                  src={e?.img}
+                                  alt=''
+                                  className=' max-h-64'
+                                />
                                 <div className='team_one-content'>
                                   <h5 className='team-one_title'>
-                                    <a href='team-detail.html'>{e.name}</a>
+                                    <a href='team-detail.html'>{e?.name}</a>
                                   </h5>
                                   <div className='team-one_designation'>
                                     {"Team Member"}
@@ -56,10 +74,10 @@ const TeamCom = () => {
                                 <div className='team_one-overlay'>
                                   <div className='team-one_overlay-content'>
                                     <div className='team_one-text'>
-                                      {e.skill}
+                                      {e?.skill_1}
                                     </div>
                                     <Link
-                                      to={`/team/${e.id}`}
+                                      to={`/team/${e?._id}`}
                                       className='team_one-more'
                                       href='team-detail.html'>
                                       Read more

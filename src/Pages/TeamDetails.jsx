@@ -32,7 +32,7 @@ const TeamDetails = () => {
       .catch((error) => {
         console.error("GET Error:", error);
       });
-  }, []);
+  }, [data]);
 
   const skillsSectionRef = useRef(null);
 
