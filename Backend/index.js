@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 
-//! Here use Middleware  /
+//! Here use Middleware  end here /
 app.get("/", (req, res) => {
   res.send("Lumen is available");
 });
