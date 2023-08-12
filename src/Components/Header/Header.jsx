@@ -67,15 +67,17 @@ const Header = () => {
               <li
                 className={`py-2 px-4  relative  ${
                   drop
-                    ? " rounded-xl cursor-pointer transition-all bg-[#080A28]  duration-150 ease-linear delay-100   "
+                    ? " rounded-xl cursor-pointer transition-all   duration-150 ease-linear delay-100   "
                     : ""
                 }`}>
-                <div className='flex justify-between items-center gap-3'>
+                <div
+                  className='flex justify-between items-center gap-3'
+                  onMouseEnter={() => setdrop(true)}>
                   <NavLink to={"/services"}>Services </NavLink>
                   <div className=''>
                     {drop ? (
                       <svg
-                        onClick={() => setdrop(!drop)}
+                        onMouseLeave={() => setdrop(!drop)}
                         xmlns='http://www.w3.org/2000/svg'
                         width='16'
                         height='16'
@@ -101,13 +103,15 @@ const Header = () => {
                 <ul
                   className={`${
                     drop
-                      ? "inline-block absolute text-white rounded-lg  py-2 bg-[#3A84A3] lg:bg-[#080A28]   transition-all duration-150 delay-150 ease-in-out  "
+                      ? "inline-block absolute text-white  py-2    ease-in-out  "
                       : "hidden"
-                  } `}>
+                  }  bg-[#010F23] transition-all duration-150 delay-150 mt-4`}>
                   {service?.map((e) => (
-                    <li className=' divide-y-2 divide-white flex items-center gap-2  rounded-lg bg-[#3A84A3] lg:bg-[#080A28] '>
+                    <li
+                      className=' divide-y-2 divide-white flex items-center gap-2   '
+                      onMouseLeave={() => setdrop(!drop)}>
                       <Link to={`/serviceDetails/${e?._id}`}>
-                        <div className='cursor-pointer my-2  bg-[#3A84A3]  lg:bg-[#080A28]  hover:lg:bg-[#0d1144]  hover:font-extrabold text-sm px-5 py-2 lg:w-60 '>
+                        <div className='cursor-pointer my-2  hover:font-extrabold text-sm px-5 py-2 lg:w-60 '>
                           {e?.title}
                         </div>
                       </Link>
