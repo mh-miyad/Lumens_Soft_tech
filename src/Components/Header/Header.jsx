@@ -110,7 +110,7 @@ const Header = () => {
                     <li
                       className=' divide-y-2 divide-white flex items-center gap-2   '
                       onMouseLeave={() => setdrop(!drop)}>
-                      <Link to={`/serviceDetails/${e?._id}`}>
+                      <Link to={`/serviceDetails/${e._id}`}>
                         <div className='cursor-pointer my-2  hover:font-extrabold text-sm px-5 py-2 lg:w-60 '>
                           {e?.title}
                         </div>

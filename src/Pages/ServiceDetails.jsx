@@ -17,7 +17,7 @@ const ServiceDetails = () => {
       .catch((error) => {
         console.error("GET Error:", error);
       });
-  }, [data]);
+  }, []);
 
   return (
     <div>
@@ -45,74 +45,62 @@ const ServiceDetails = () => {
                 <img src={img1} alt='' />
               </div>
             </div>
-            <div class='service-web-design-con col-lg-6 col-md-12 col-sm-12'>
-              <div class='service-all-part-right'>
-                <div class='service-all-part-title-box'>
-                  <div class='service-all-part-title'>// About Our Service</div>
-                  <h2 class='service-all-part-heading'>
-                    We Provide Best
-                    <br />
-                    <span>{data?.map((e) => e?.title)}</span>
-                  </h2>
+            {data.map((e) => (
+              <div class='service-web-design-con col-lg-6 col-md-12 col-sm-12'>
+                <div class='service-all-part-right'>
+                  <div class='service-all-part-title-box'>
+                    <div class='service-all-part-title'>
+                      // About Our Service
+                    </div>
+                    <h2 class='service-all-part-heading'>
+                      We Provide Best
+                      <br />
+                      <span>{e?.title}</span>
+                    </h2>
+                  </div>
+                  {/* <!-- details --> */}
+                  <div class='row'>
+                    {/* <!-- block --> */}
+                    <div class='col-lg-6 col-md-12 col-sm-12'>
+                      <div class='service-all-details-box'>
+                        <span>01</span>
+                        <div class='service-all-detail-title'>{e?.short1}</div>
+                        <div class='service-all-detail-text'>{e?.des1}</div>
+                      </div>
+                    </div>
+                    {/* <!-- block -->
+                            <!-- block --> */}
+                    <div class='col-lg-6 col-md-12 col-sm-12'>
+                      <div class='service-all-details-box'>
+                        <span>02</span>
+                        <div class='service-all-detail-title'>{e?.short2}</div>
+                        <div class='service-all-detail-text'>{e?.des2}</div>
+                      </div>
+                    </div>
+                    {/* <!-- block -->
+                            <!-- block --> */}
+                    <div class='col-lg-6 col-md-12 col-sm-12'>
+                      <div class='service-all-details-box'>
+                        <span>03</span>
+                        <div class='service-all-detail-title'>{e?.short3}</div>
+                        <div class='service-all-detail-text'>{e?.des3}</div>
+                      </div>
+                    </div>
+                    {/* <!-- block -->
+                            <!-- block --> */}
+                    <div class='col-lg-6 col-md-12 col-sm-12'>
+                      <div class='service-all-details-box'>
+                        <span>04</span>
+                        <div class='service-all-detail-title'>{e?.short4}</div>
+                        <div class='service-all-detail-text'>{e?.des4}</div>
+                      </div>
+                    </div>
+                    {/* <!-- block --> */}
+                  </div>
+                  {/* <!-- details --> */}
                 </div>
-                {/* <!-- details --> */}
-                <div class='row'>
-                  {/* <!-- block --> */}
-                  <div class='col-lg-6 col-md-12 col-sm-12'>
-                    <div class='service-all-details-box'>
-                      <span>01</span>
-                      <div class='service-all-detail-title'>
-                        {data?.map((e) => e?.short1)}
-                      </div>
-                      <div class='service-all-detail-text'>
-                        {data?.map((e) => e?.des1)}
-                      </div>
-                    </div>
-                  </div>
-                  {/* <!-- block -->
-                            <!-- block --> */}
-                  <div class='col-lg-6 col-md-12 col-sm-12'>
-                    <div class='service-all-details-box'>
-                      <span>02</span>
-                      <div class='service-all-detail-title'>
-                        {data?.map((e) => e?.short2)}
-                      </div>
-                      <div class='service-all-detail-text'>
-                        {data?.map((e) => e?.des2)}
-                      </div>
-                    </div>
-                  </div>
-                  {/* <!-- block -->
-                            <!-- block --> */}
-                  <div class='col-lg-6 col-md-12 col-sm-12'>
-                    <div class='service-all-details-box'>
-                      <span>03</span>
-                      <div class='service-all-detail-title'>
-                        {data?.map((e) => e?.short3)}
-                      </div>
-                      <div class='service-all-detail-text'>
-                        {data?.map((e) => e?.des3)}
-                      </div>
-                    </div>
-                  </div>
-                  {/* <!-- block -->
-                            <!-- block --> */}
-                  <div class='col-lg-6 col-md-12 col-sm-12'>
-                    <div class='service-all-details-box'>
-                      <span>04</span>
-                      <div class='service-all-detail-title'>
-                        {data?.map((e) => e?.short4)}
-                      </div>
-                      <div class='service-all-detail-text'>
-                        {data?.map((e) => e?.des4)}
-                      </div>
-                    </div>
-                  </div>
-                  {/* <!-- block --> */}
-                </div>
-                {/* <!-- details --> */}
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

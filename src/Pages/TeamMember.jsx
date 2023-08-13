@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import useAxios from "../Hooks/useAxios";
+import LoadingComp from "../Components/Loading/LoadingComp";
 AOS.init();
 const TeamMember = () => {
   const { loading, get } = useAxios();
@@ -19,7 +20,7 @@ const TeamMember = () => {
       .catch((error) => {
         console.error("GET Error:", error);
       });
-  }, [team]);
+  }, []);
   return (
     <div className=''>
       <Helmet>
@@ -42,19 +43,25 @@ const TeamMember = () => {
       </div>
       <section className='team-list'>
         <div className='max-w-6xl mx-auto '>
-          <div className='row'>
-            {team.map((e) => (
-              <TeamCard
-                key={e._id}
-                img={e.img}
-                name={e.name}
-                skill={e.skill_1}
-                fb={e.fb_link}
-                insta={e.insta_link}
-                id={e._id}
-              />
-            ))}
-          </div>
+          {loading ? (
+            <>
+              <LoadingComp />
+            </>
+          ) : (
+            <div className='row'>
+              {team.map((e) => (
+                <TeamCard
+                  key={e._id}
+                  img={e.img}
+                  name={e.name}
+                  skill={e.skill_1}
+                  fb={e.fb_link}
+                  insta={e.insta_link}
+                  id={e._id}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </div>

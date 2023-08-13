@@ -1,6 +1,6 @@
 import React from "react";
 import ServicesCard from "../Components/ServicesCard/ServicesCard";
-import service from "../data/service";
+
 import { Helmet } from "react-helmet";
 import AOS from "aos";
 import "aos/dist/aos.css";

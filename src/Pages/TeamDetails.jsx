@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import team from "../data/team";
+
 import { TypeAnimation } from "react-type-animation";
 import { Helmet } from "react-helmet";
 import ContactForm from "../Components/Contact/ContactForm";

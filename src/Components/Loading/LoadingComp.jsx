@@ -3,7 +3,13 @@ import ReactLoading from "react-loading";
 const LoadingComp = () => {
   return (
     <div className=''>
-      <ReactLoading type={"cylon"} color={"#9F70F5"} height={667} width={375} />
+      <ReactLoading
+        type={"cylon"}
+        color={"#9F70F5"}
+        height={667}
+        width={375}
+        delay={500}
+      />
     </div>
   );
 };
