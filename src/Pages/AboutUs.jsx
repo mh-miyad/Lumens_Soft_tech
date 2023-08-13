@@ -115,27 +115,13 @@ const AboutUs = () => {
                                 <!-- block --> */}
                     <div className='tab-content'>
                       <h3>Our vision</h3>
-                      <p>
-                        An IT firm or MSP who keeps your IT running smoothly at
-                        all times is like a plumber who fixes your pipes; that’s
-                        what they are supposed to do. Many IT firms struggle to
-                        keep themselves and their IT from falling apart. We’ve
-                        raised the standards in this industry and are a leading
-                        cybersecurity.
-                      </p>
+                      <p>{data?.map((ele) => ele.ourVision)}</p>
                     </div>
                     {/* <!-- block -->
                                 <!-- block --> */}
                     <div className='tab-content'>
                       <h3>Our value</h3>
-                      <p>
-                        An IT firm or MSP who keeps your IT running smoothly at
-                        all times is like a plumber who fixes your pipes; that’s
-                        what they are supposed to do. Many IT firms struggle to
-                        keep themselves and their IT from falling apart. We’ve
-                        raised the standards in this industry and are a leading
-                        cybersecurity.
-                      </p>
+                      <p>{data?.map((ele) => ele.ourValue)}</p>
                     </div>
                     {/* <!-- block --> */}
                   </div>
