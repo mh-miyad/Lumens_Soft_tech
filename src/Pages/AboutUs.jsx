@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../Css/About.css";
 import img from "../assets/images/about.svg";
 import img2 from "../assets/images/pattern-45.png";
@@ -7,6 +7,9 @@ import img4 from "../assets/images/award.svg";
 import { Helmet } from "react-helmet";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import useAxios from "../Hooks/useAxios";
+import CountUp from "react-countup";
+
 AOS.init();
 const AboutUs = () => {
   useEffect(() => {
@@ -30,6 +33,17 @@ const AboutUs = () => {
       });
     });
   }, []);
+  const { loading, get } = useAxios();
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    get("/aboutList")
+      .then((response) => {
+        setData(response);
+      })
+      .catch((error) => {
+        console.error("GET Error:", error);
+      });
+  }, [data]);
   return (
     <div>
       <Helmet>
@@ -95,14 +109,7 @@ const AboutUs = () => {
                     {/* <!-- block --> */}
                     <div className='tab-content active'>
                       <h3 className='my-2'>Our Mession</h3>
-                      <p>
-                        An IT firm or MSP who keeps your IT running smoothly at
-                        all times is like a plumber who fixes your pipes; that’s
-                        what they are supposed to do. Many IT firms struggle to
-                        keep themselves and their IT from falling apart. We’ve
-                        raised the standards in this industry and are a leading
-                        cybersecurity.
-                      </p>
+                      <p>{data?.map((ele) => ele.ourMission)}</p>
                     </div>
                     {/* <!-- block -->
                                 <!-- block --> */}
@@ -148,8 +155,8 @@ const AboutUs = () => {
                   <div className='about-one-counter-block'>
                     <div className='layer-dots'></div>
                     <div className='about-counter-box'>
-                      <div className='count' max-data='12'>
-                        12
+                      <div className='count'>
+                        <CountUp end={12} duration={20} />
                       </div>
                     </div>
                     <div className='counter-text'>years of experiences</div>
