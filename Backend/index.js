@@ -35,6 +35,7 @@ async function run() {
     const createClientCollection = client.db("clientDB").collection("client");
     const teamCollection = client.db("teamDB").collection("teams");
     const blogCollection = client.db("blogDB").collection("blog");
+    const emailCollection = client.db("emailDB").collection("email");
     const serviceCollection = client.db("serviceDB").collection("service");
     const aboutCollection = client.db("aboutDB").collection("about");
     app.post("/aboutCreate", async (req, res) => {
@@ -97,8 +98,22 @@ async function run() {
         res.send(error);
       }
     });
+    app.post("/emailCreate", async (req, res) => {
+      const data = req.body;
+
+      try {
+        const result = await emailCollection.insertOne(data);
+        res.send(result);
+      } catch (error) {
+        res.send(error);
+      }
+    });
     app.get("/allClientList", async (req, res) => {
       const result = await createClientCollection.find().toArray();
+      res.send(result);
+    });
+    app.get("/emailList", async (req, res) => {
+      const result = await emailCollection.find().toArray();
       res.send(result);
     });
     app.get("/blogList", async (req, res) => {

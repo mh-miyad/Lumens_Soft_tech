@@ -49,7 +49,7 @@ const Scroll = () => {
   return (
     <div>
       <div className='scroll-to-top-btn'>
-        <a href='#' className='scrollUp'>
+        <a href='#' className='scrollUp text-center'>
           <i className='fa-solid fa-angles-up'></i>
         </a>
       </div>
