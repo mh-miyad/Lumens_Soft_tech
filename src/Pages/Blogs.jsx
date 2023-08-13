@@ -5,6 +5,8 @@ import BlogCard from "../Components/BlogCard/BlogCard";
 import { useState } from "react";
 import { useEffect } from "react";
 import useAxios from "../Hooks/useAxios";
+import LoadingComp from "../Components/Loading/LoadingComp";
+import { Link } from "react-router-dom";
 
 const Blogs = () => {
   const { loading, get } = useAxios();
@@ -17,24 +19,24 @@ const Blogs = () => {
       .catch((error) => {
         console.error("GET Error:", error);
       });
-  }, [data]);
+  }, []);
   return (
     <div>
-      <section class='bloggerSlide'>
-        <div class='blogSlideBox'>
-          <div class='blog-carousel owl-theme owl-loaded'>
-            <div class='owl-stage-outer blog-stage-outer'>
-              <div class='owl-stage blog-owl-stage'>
+      <section className='bloggerSlide'>
+        <div className='blogSlideBox'>
+          <div className='blog-carousel owl-theme owl-loaded'>
+            <div className='owl-stage-outer blog-stage-outer'>
+              <div className='owl-stage blog-owl-stage'>
                 {/* <!-- items --> */}
-                <div class='owl-item blogSlide-owl-item'>
-                  <div class='blog-slider-main'>
-                    <div class='blog-slider-img'></div>
-                    <div class='blog-slider-img-overlay'></div>
-                    <div class='blog-slider-info'>
-                      <h1 class='blog-head'>
+                <div className='owl-item blogSlide-owl-item'>
+                  <div className='blog-slider-main'>
+                    <div className='blog-slider-img'></div>
+                    <div className='blog-slider-img-overlay'></div>
+                    <div className='blog-slider-info'>
+                      <h1 className='blog-head'>
                         How to convert A static site with React
                       </h1>
-                      <a href='/technology.html' class='blog-btn'>
+                      <a href='/technology.html' className='blog-btn'>
                         Read Blog
                       </a>
                     </div>
@@ -43,63 +45,63 @@ const Blogs = () => {
                 {/* <!-- items --> */}
               </div>
             </div>
-            <div class='owl-nav'>
-              <div class='owl-prev'>
-                <i class='fa-solid fa-angle-left'></i>
+            <div className='owl-nav'>
+              <div className='owl-prev'>
+                <i className='fa-solid fa-angle-left'></i>
               </div>
-              <div class='owl-next'>
-                <i class='fa-solid fa-angle-right'></i>
+              <div className='owl-next'>
+                <i className='fa-solid fa-angle-right'></i>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class='blogFeatureOne'>
-        <div class='container'>
-          <div class='row'>
-            <div class='col-md-3'>
-              <div class='blogFeatureOneMain'>
-                <div class='blogFeatureOnebox'>
-                  <div class='blogFeatureImg'>
+      <section className='blogFeatureOne'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-3'>
+              <div className='blogFeatureOneMain'>
+                <div className='blogFeatureOnebox'>
+                  <div className='blogFeatureImg'>
                     <img src={news6} alt='' />
                   </div>
-                  <a href='#' class='blogPagesBtn'>
+                  <a href='#' className='blogPagesBtn'>
                     Technology
                   </a>
                 </div>
               </div>
             </div>
-            <div class='col-md-3'>
-              <div class='blogFeatureOneMain'>
-                <div class='blogFeatureOnebox'>
-                  <div class='blogFeatureImg'>
+            <div className='col-md-3'>
+              <div className='blogFeatureOneMain'>
+                <div className='blogFeatureOnebox'>
+                  <div className='blogFeatureImg'>
                     <img src={news6} alt='' />
                   </div>
-                  <a href='#' class='blogPagesBtn'>
+                  <a href='#' className='blogPagesBtn'>
                     News
                   </a>
                 </div>
               </div>
             </div>
-            <div class='col-md-3'>
-              <div class='blogFeatureOneMain'>
-                <div class='blogFeatureOnebox'>
-                  <div class='blogFeatureImg'>
+            <div className='col-md-3'>
+              <div className='blogFeatureOneMain'>
+                <div className='blogFeatureOnebox'>
+                  <div className='blogFeatureImg'>
                     <img src={news6} alt='' />
                   </div>
-                  <a href='/technology.html' class='blogPagesBtn'>
+                  <a href='/technology.html' className='blogPagesBtn'>
                     Marketing
                   </a>
                 </div>
               </div>
             </div>
-            <div class='col-md-3'>
-              <div class='blogFeatureOneMain'>
-                <div class='blogFeatureOnebox'>
-                  <div class='blogFeatureImg'>
+            <div className='col-md-3'>
+              <div className='blogFeatureOneMain'>
+                <div className='blogFeatureOnebox'>
+                  <div className='blogFeatureImg'>
                     <img src={news6} alt='' />
                   </div>
-                  <a href='/technology.html' class='blogPagesBtn'>
+                  <a href='/technology.html' className='blogPagesBtn'>
                     SEO
                   </a>
                 </div>
@@ -108,90 +110,59 @@ const Blogs = () => {
           </div>
         </div>
       </section>
-      <section class='blogBodyFeatures'>
-        <div class='container'>
-          <div class='row'>
+      <section className='blogBodyFeatures'>
+        <div className='container'>
+          <div className='row'>
             {/* <!-- left part --> */}
-            <div class='col-md-8'>
-              <div class='leftBlogBodyFeatureMain'>
+            <div className='col-md-8'>
+              <div className='leftBlogBodyFeatureMain'>
                 {/* <!-- block --> */}
-                <div class='AllBlogFeaturesMain'>
-                  <a href='/technology.html' class='AllBlogFeaturesHead'>
-                    //Technology
-                  </a>
-                  {data.map((ele) => (
-                    <BlogCard
-                      key={ele._id}
-                      _id={ele._id}
-                      blogTitle={ele.blogTitle}
-                      img={ele.image}
-                      shortTitle={ele.shortTitle}
-                    />
-                  ))}
-                </div>
+                {loading ? (
+                  <>
+                    <LoadingComp />
+                  </>
+                ) : (
+                  <div className='AllBlogFeaturesMain'>
+                    <a href='/technology.html' className='AllBlogFeaturesHead'>
+                      //Technology
+                    </a>
+                    {data.map((ele) => (
+                      <BlogCard
+                        key={ele._id}
+                        _id={ele._id}
+                        blogTitle={ele.blogTitle}
+                        img={ele.image}
+                        shortTitle={ele.shortTitle}
+                      />
+                    ))}
+                  </div>
+                )}
                 {/* <!-- block --> */}
               </div>
             </div>
             {/* <!-- left part -->
                 <!-- right part --> */}
-            <div class='col-md-4'>
-              <div class='rightBlogBodyFeatureMain'>
-                <div class='latestPostMain'>
-                  <div class='latestPostTitle'>Latest Posts</div>
+            <div className='col-md-4'>
+              <div className='rightBlogBodyFeatureMain'>
+                <div className='latestPostMain'>
+                  <div className='latestPostTitle'>Latest Posts</div>
                   {/* <!-- list --> */}
-                  <div class='latestPostList'>
-                    <div class='postImg'>
-                      <img src='../images/news-6.jpg' alt='' />
-                    </div>
-                    <div class='postInfo'>
-                      <div class='postTile'>
-                        <a href='/technology.html'>
-                          How to convert A static site with React
-                        </a>
+                  {data?.slice(0, 4).map((ele) => (
+                    <Link to={`/blogDetails/${ele._id}`} key={ele._id}>
+                      <div className='latestPostList'>
+                        <div className='postImg'>
+                          <img src={ele.image} alt='' />
+                        </div>
+                        <div className='postInfo'>
+                          <div className='postTile'>
+                            <a href='/technology.html'>{ele.blogTitle}</a>
+                          </div>
+                        </div>
                       </div>
-                      <div class='postContent'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Architecto, facere?...
-                      </div>
-                    </div>
-                  </div>
+                    </Link>
+                  ))}
                   {/* <!-- list -->
                             <!-- list --> */}
-                  <div class='latestPostList'>
-                    <div class='postImg'>
-                      <img src='../images/news-6.jpg' alt='' />
-                    </div>
-                    <div class='postInfo'>
-                      <div class='postTile'>
-                        <a href='/technology.html'>
-                          How to convert A static site with React
-                        </a>
-                      </div>
-                      <div class='postContent'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Architecto, facere?...
-                      </div>
-                    </div>
-                  </div>
-                  {/* <!-- list -->
-                            <!-- list --> */}
-                  <div class='latestPostList'>
-                    <div class='postImg'>
-                      <img src='../images/news-6.jpg' alt='' />
-                    </div>
-                    <div class='postInfo'>
-                      <div class='postTile'>
-                        <a href='/technology.html'>
-                          How to convert A static site with React
-                        </a>
-                      </div>
-                      <div class='postContent'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Architecto, facere?...
-                      </div>
-                    </div>
-                  </div>
-                  {/* <!-- list --> */}
                 </div>
               </div>
             </div>

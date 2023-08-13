@@ -5,7 +5,7 @@ import TableRow from "./TableRow";
 const Table = ({ data, deleteData, value }) => {
   return (
     <div className='px-10 overflow-auto'>
-      <div class='relative overflow-x-scroll shadow-md sm:rounded-lg'>
+      <div className='relative overflow-x-scroll shadow-md sm:rounded-lg'>
         <table className='w-full text-sm  text-left text-gray-500 dark:text-gray-400'>
           <thead className='text-xs text-white uppercase bg-[#0D4998] dark:bg-gray-700 dark:text-gray-400'>
             <tr>
