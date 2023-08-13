@@ -75,6 +75,7 @@ const Services = () => {
                         icon={e?.imgUrl1}
                         title={e?.title}
                         index={index + 1}
+                        id={e?._id}
                       />
                     ))}
                   </div>

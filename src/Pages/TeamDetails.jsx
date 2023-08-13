@@ -80,7 +80,9 @@ const TeamDetails = () => {
     <div>
       <Helmet>
         <meta charSet='utf-8' />
-        <title>{`${data.map((e) => e.name)} details -Lumens Soft tech`}</title>
+        <title>{`${data?.map(
+          (e) => e?.name,
+        )} details -Lumens Soft tech`}</title>
       </Helmet>
       <section className='team-first'>
         <div className='max-w-6xl mx-auto  container md:px-10 '>
