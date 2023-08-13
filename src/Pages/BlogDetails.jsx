@@ -4,7 +4,7 @@ import "./Blog.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import useAxios from "../Hooks/useAxios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const BlogDetails = () => {
   const { loading, get } = useAxios();
@@ -92,59 +92,22 @@ const BlogDetails = () => {
                 <div className='latestPostMain'>
                   <div className='latestPostTitle'>Latest Posts</div>
                   {/* <!-- list --> */}
-                  <div className='latestPostList'>
-                    <div className='postImg'>
-                      <img src='../images/news-6.jpg' alt='' />
-                    </div>
-                    <div className='postInfo'>
-                      <div className='postTile'>
-                        <a href='/technology.html'>
-                          How to convert A static site with React
-                        </a>
+                  {data?.slice(0, 4).map((ele) => (
+                    <Link to={`/blogDetails/${ele._id}`} key={ele._id}>
+                      <div className='latestPostList'>
+                        <div className='postImg'>
+                          <img src={ele.image} alt='' />
+                        </div>
+                        <div className='postInfo'>
+                          <div className='postTile'>
+                            <a href='/technology.html'>{ele.blogTitle}</a>
+                          </div>
+                        </div>
                       </div>
-                      <div className='postContent'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Architecto, facere?...
-                      </div>
-                    </div>
-                  </div>
+                    </Link>
+                  ))}
                   {/* <!-- list -->
                             <!-- list --> */}
-                  <div className='latestPostList'>
-                    <div className='postImg'>
-                      <img src='../images/news-6.jpg' alt='' />
-                    </div>
-                    <div className='postInfo'>
-                      <div className='postTile'>
-                        <a href='/technology.html'>
-                          How to convert A static site with React
-                        </a>
-                      </div>
-                      <div className='postContent'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Architecto, facere?...
-                      </div>
-                    </div>
-                  </div>
-                  {/* <!-- list -->
-                            <!-- list --> */}
-                  <div className='latestPostList'>
-                    <div className='postImg'>
-                      <img src='../images/news-6.jpg' alt='' />
-                    </div>
-                    <div className='postInfo'>
-                      <div className='postTile'>
-                        <a href='/technology.html'>
-                          How to convert A static site with React
-                        </a>
-                      </div>
-                      <div className='postContent'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Architecto, facere?...
-                      </div>
-                    </div>
-                  </div>
-                  {/* <!-- list --> */}
                 </div>
               </div>
             </div>
