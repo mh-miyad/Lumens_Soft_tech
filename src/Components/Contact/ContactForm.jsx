@@ -1,14 +1,26 @@
 import React, { useRef, useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
+import useAxios from "../../Hooks/useAxios";
 
 const ContactForm = () => {
+  const { loading, post } = useAxios();
   const form = useRef();
   const [email, setEmail] = useState(null);
   const [name, setName] = useState(null);
   const [phone, setPhone] = useState(null);
   const [subject, setSubject] = useState(null);
   const [massage, setMassage] = useState(null);
+  const data = {
+    name,
+    email,
+    phone,
+    subject,
+    massage,
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form1 = e.target;
+
     emailjs
       .sendForm(
         "service_k2zqm4y",
@@ -30,6 +42,17 @@ const ContactForm = () => {
           console.log(error.text);
         },
       );
+    post("/emailCreate", data)
+      .then((response) => {
+        console.log("Response:", response);
+        toast.success(" Thank You ");
+        form1.reset();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        // Handle error, show a toast, etc.
+        toast.error("An error occurred while creating the project.");
+      });
   };
   return (
     <form onSubmit={handleSubmit} ref={form}>

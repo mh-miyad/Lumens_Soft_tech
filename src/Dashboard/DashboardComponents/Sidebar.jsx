@@ -105,7 +105,7 @@ const Sidebar = () => {
             <DropDownMenu
               icon={<HiOutlineMail />}
               lebel={"Email"}
-              menu={[{ name: "Inbox" }, { name: "Templates" }]}
+              menu={[{ name: "Inbox", router: "inbox" }, { name: "Templates" }]}
             />
             <DropDownMenu
               icon={<FaUsers />}

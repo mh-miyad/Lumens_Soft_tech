@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import ContactForm from "../Components/Contact/ContactForm";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Toaster } from "react-hot-toast";
 AOS.init();
 const Contact = () => {
   return (
@@ -141,6 +142,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };

@@ -204,6 +204,25 @@ async function run() {
         res.status(500).json({ message: "An error occurred" });
       }
     });
+    app.delete("/emailDelete/:id", async (req, res) => {
+      try {
+        const id = req.params.id;
+
+        const query = { _id: new ObjectId(id) };
+        const result = await emailCollection.deleteOne(query);
+
+        if (result.deletedCount === 1) {
+          res
+            .status(200)
+            .json({ message: "Services  is  deleted successfully" });
+        } else {
+          res.status(404).json({ message: "Services   is  not found" });
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "An error occurred" });
+      }
+    });
     app.delete("/blogDelete/:id", async (req, res) => {
       try {
         const id = req.params.id;

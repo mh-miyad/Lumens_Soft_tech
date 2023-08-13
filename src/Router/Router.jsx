@@ -23,6 +23,7 @@ import TeamDetailsDash from "../Dashboard/Pages/TeamDetailsDash";
 import DaynamicDropdown from "../Dashboard/Pages/DaynamicDropdown";
 import ServiceDetails from "../Pages/ServiceDetails";
 import BlogDetails from "../Pages/BlogDetails";
+import InboxEmail from "../Dashboard/Pages/InboxEmail";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -117,6 +118,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/team_details",
         element: <TeamDetailsDash />,
+      },
+      {
+        path: "/admin/inbox",
+        element: <InboxEmail />,
       },
       {
         path: "/admin/daynamic_Dropdown",
